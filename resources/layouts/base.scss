@@ -1,18 +1,9 @@
 .Layout {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     min-height: 100vh;
-    overflow: hidden;
-
-    &__header {
-        flex-shrink: 0;
-    }
 
     &__main {
-        flex-grow: 1;
-    }
-
-    &__footer {
-        flex-shrink: 0;
+        flex: 1;
     }
 }
