@@ -1,12 +1,37 @@
 // Your custom variables and variable overwrites
-$global-link-color: #DA7D02;
+$base-margin-vertical: 0;
+$base-heading-margin-top: 0;
+$base-list-padding-left: 0;
+$base-body-font-size: 100%;
+$base-em-color: inherit;
+
+$base-body-line-height: 1.35;
+$base-h1-line-height: $base-body-line-height;
+$base-h2-line-height: $base-body-line-height;
+$base-h3-line-height: $base-body-line-height;
+$base-h4-line-height: $base-body-line-height;
+$base-h5-line-height: $base-body-line-height;
+$base-h6-line-height: $base-body-line-height;
+
+$container-max-width: 1264px;
+$container-small-max-width: 780px;
+$container-xsmall-max-width: 720px;
+
+$container-padding-horizontal-m: 88px;
+$container-padding-horizontal-s: 32px;
+$container-padding-horizontal: 16px;
+
+$global-font-family: 'Open Sans', sans-serif;
+$base-heading-font-family: 'Montserrat', sans-serif;
 
 // Import default variables and available mixins
 @import "~uikit/src/scss/variables.scss";
 @import "~uikit/src/scss/mixins.scss";
 
 // Your custom mixin overwrites
-@mixin hook-card() { color: #000; }
+@mixin hook-base-link {
+    transition: color 0.25s ease-in-out;
+}
 
 // Import UIkit
 @import "~uikit/src/scss/uikit.scss";
