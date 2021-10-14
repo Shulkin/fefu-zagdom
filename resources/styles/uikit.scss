@@ -21,6 +21,13 @@ $container-padding-horizontal-m: 88px;
 $container-padding-horizontal-s: 32px;
 $container-padding-horizontal: 16px;
 
+$button-primary-background: $color-green;
+$button-primary-color: white;
+$button-primary-hover-background: darken($button-primary-background, 5%);
+$button-primary-hover-color: white;
+$button-primary-active-background: darken($button-primary-background, 10%);
+$button-primary-active-color: white;
+
 $global-font-family: 'Open Sans', sans-serif;
 $base-heading-font-family: 'Montserrat', sans-serif;
 
@@ -31,6 +38,16 @@ $base-heading-font-family: 'Montserrat', sans-serif;
 // Your custom mixin overwrites
 @mixin hook-base-link {
     transition: color 0.25s ease-in-out;
+}
+
+@mixin hook-button {
+    padding-x: 40px;
+    border-radius: 10px;
+    font-family: $base-heading-font-family;
+    font-weight: $font-weight-medium;
+    font-size: toRem(14px);
+    line-height: 49px;
+    transition: background-color 0.25s ease-in-out;
 }
 
 // Import UIkit

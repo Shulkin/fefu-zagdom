@@ -1,5 +1,24 @@
+// Variables
+$color-black: black;
+$color-gray: #666666;
+$color-green: #029F59;
+$color-green--dark: #254741;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Functions
+@function toRem($size) {
+    @return $size / 16px * 1rem;
+}
+
 @import "./uikit.scss";
 @import "../layouts/base.scss";
 
+// Elements
+@import "./elements.scss";
+
 // Components
 @import "../components/header/header.scss";
+@import "../components/site-nav/site-nav.scss";
