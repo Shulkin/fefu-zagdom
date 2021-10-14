@@ -3,6 +3,10 @@
     flex-direction: column;
     min-height: 100vh;
 
+    &__header {
+        padding-y: 24px;
+    }
+
     &__main {
         flex: 1;
     }

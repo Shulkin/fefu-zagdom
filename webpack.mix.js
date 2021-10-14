@@ -4,7 +4,9 @@ const { resolve } = require('path');
 mix
     .setPublicPath('public')
     .js('resources/scripts/main.js', 'build/bundle.js')
-    .sass('resources/styles/main.scss', 'build/bundle.css')
+    .sass('resources/styles/main.scss', 'build/bundle.css', {}, [
+        require('postcss-axis')
+    ])
     .browserSync({
         proxy: 'localhost',
         files: ['resources/**/*'],
