@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans");
+
+.caption {
+    text-align: center;
+    font-size: 60px;
+    color: dodgerblue;
+    font-family: 'Montserrat';
+}
