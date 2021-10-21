@@ -1,0 +1,75 @@
+@import 'settings';
+
+$breakpoint-xs: $breakpoint-xsmall;
+$breakpoint-sm: $breakpoint-small;
+$breakpoint-md: $breakpoint-medium;
+$breakpoint-lg: $breakpoint-large;
+$breakpoint-xl: $breakpoint-xlarge;
+
+@function vw-down($bp) {
+    @return '(max-width: #{$bp - 1})';
+}
+@function vw-up($bp) {
+    @return '(min-width: #{$bp})';
+}
+
+$bp-xs: $breakpoint-xs;
+@mixin vw-xs-up {
+    @media #{vw-up($bp-xs)} {
+        @content;
+    }
+}
+@mixin vw-xs-down {
+    @media #{vw-down($bp-xs)} {
+        @content;
+    }
+}
+
+$bp-sm: $breakpoint-sm;
+@mixin vw-sm-up {
+    @media #{vw-up($bp-sm)} {
+        @content;
+    }
+}
+@mixin vw-sm-down {
+    @media #{vw-down($bp-sm)} {
+        @content;
+    }
+}
+
+$bp-md: $breakpoint-md;
+@mixin vw-md-up {
+    @media #{vw-up($bp-md)} {
+        @content;
+    }
+}
+@mixin vw-md-down {
+    @media #{vw-down($bp-md)} {
+        @content;
+    }
+}
+
+$bp-lg: $breakpoint-lg;
+@mixin vw-lg-up {
+    @media #{vw-up($bp-lg)} {
+        @content;
+    }
+}
+@mixin vw-lg-down {
+    @media #{vw-down($bp-lg)} {
+        @content;
+    }
+}
+
+$bp-xl: $breakpoint-xl;
+@mixin vw-xl-up {
+    @media #{vw-up($bp-xl)} {
+        @content;
+    }
+}
+@mixin vw-xl-down {
+    @media #{vw-down($bp-xl)} {
+        @content;
+    }
+}
+

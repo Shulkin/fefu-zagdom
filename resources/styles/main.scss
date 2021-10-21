@@ -13,6 +13,7 @@ $font-weight-bold: 700;
     @return $size / 16px * 1rem;
 }
 
+@import "./media.scss";
 @import "./uikit.scss";
 @import "../layouts/base.scss";
 
@@ -22,3 +23,4 @@ $font-weight-bold: 700;
 // Components
 @import "../components/header/header.scss";
 @import "../components/site-nav/site-nav.scss";
+@import "../components/contacts/contacts.scss";
