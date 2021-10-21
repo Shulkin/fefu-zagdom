@@ -22,4 +22,8 @@
     &--primary {
         @extend .uk-button-primary;
     }
+
+    &--icon {
+        padding-x: 16px;
+    }
 }
