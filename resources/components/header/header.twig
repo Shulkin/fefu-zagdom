@@ -28,13 +28,11 @@
 {% endmacro %}
 
 {% macro phone(value) %}
-    <a class="PrimaryPhone" href="tel:{{ value }}">
+    <a href="tel:{{ value }}" class="PrimaryPhone">
         <img
-            class="PrimaryPhone__icon"
             src="{{ 'icons/phone.svg'|asset }}"
-            alt="Телефон"
-            width="16"
-            height="16"
+            alt="Телефон" width="16" height="16"
+            class="PrimaryPhone__icon"
         >
         {{ value }}
     </a>
@@ -46,40 +44,36 @@
     </button>
 {% endmacro %}
 
-{% macro offcanvasButton() %}
+{% macro offCanvasButton() %}
     <button
         type="button"
+        id="offcanvas-button"
         class="Button Button--primary Button--icon"
         uk-toggle="target: #offcanvas"
-        id="offcanvas-button"
     >
         <img
             src="{{ 'icons/list-white.svg'|asset }}"
-            width="24"
-            height="14"
-            alt=""
+            alt="" width="24" height="14"
         >
     </button>
 {% endmacro %}
 
-{% macro offcanvas(scope) %}
-    <div id="offcanvas" class="Offcanvas" uk-offcanvas="overlay: true; flip: true">
-        <div class="uk-offcanvas-bar Offcanvas__layout">
-            <button class="uk-offcanvas-close Offcanvas__close" type="button">
+{% macro offCanvas(scope) %}
+    <div id="offcanvas" class="OffCanvas" uk-offcanvas="overlay: true; flip: true">
+        <div class="uk-offcanvas-bar OffCanvas__layout">
+            <button type="button" class="uk-offcanvas-close OffCanvas__close">
                 <img
                     src="{{ 'icons/cross-white.svg'|asset }}"
-                    width="12"
-                    height="12"
-                    alt=""
+                    alt="" width="12" height="12"
                 >
             </button>
-            <nav class="Offcanvas__nav">
+            <nav class="OffCanvas__nav">
                 {% include '@components/site-nav/site-nav.twig' with {
                     items: scope.menu,
                     column: true,
                 } %}
             </nav>
-            <div class="Offcanvas__contacts">
+            <div class="OffCanvas__contacts">
                 {% include '@components/contacts/contacts.twig' %}
             </div>
         </div>
@@ -108,11 +102,12 @@
             {{ macros.button }}
         </div>
 
-        <div class="Header__offcanvasButton">
-            {{ macros.offcanvasButton }}
+        <div class="Header__offCanvasButton">
+            {{ macros.offCanvasButton }}
         </div>
     </div>
-    {{ macros.offcanvas(scope) }}
+
+    {{ macros.offCanvas(scope) }}
 {% endmacro %}
 
 {{ macros.content(scope) }}

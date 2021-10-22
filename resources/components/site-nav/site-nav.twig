@@ -6,7 +6,7 @@
 } %}
 
 {% macro content(scope) %}
-    <ul class="SiteNav {{ scope.column ? "SiteNav--column" : "" }}">
+    <ul class="SiteNav {{ scope.column ? "SiteNav--column" }}">
         {% for item in scope.items %}
             {% set item = {
                 url: item.url ?? '',

@@ -6,6 +6,7 @@
     &__logo {
         width: 160px;
         margin-right: 6.4%;
+
         @include vw-xl-down {
             margin-right: 3.5%;
         }
@@ -19,6 +20,7 @@
 
     &__phone {
         margin-x: auto 24px;
+
         @include vw-md-down {
             display: none;
         }
@@ -30,39 +32,45 @@
         }
     }
 
-    &__offcanvasButton {
+    &__offCanvasButton {
         margin-left: 16px;
+
         @include vw-lg-up {
             display: none;
         }
+
         @include vw-md-down {
             margin-left: auto;
         }
     }
 }
-.Offcanvas {
+
+.OffCanvas {
     &__layout {
         display: flex;
         flex-flow: column;
-        padding-top: 6.5em;
-        padding-bottom: 3em;
+        padding-y: 6.5em 3em;
     }
+
     &__close {
         top: 31px;
         right: 39px;
-        border-radius: 6px;
         padding: 10px;
+        border-radius: 6px;
         background: rgba(white, 0.2);
         cursor: pointer;
+
         img {
             display: block;
         }
     }
+
     &__nav {
         flex-grow: 1;
         margin-bottom: 1.5em;
         font-size: 1.125em;
     }
+
     &__contacts {
         font-size: 0.875em;
     }
