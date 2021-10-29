@@ -4,8 +4,33 @@
     items: items ?? [],
 } %}
 
+{% macro slide(data) %}
+    <div class="Slide">
+        {{ dump(data) }}
+    </div>
+{% endmacro %}
+
 {% macro content(scope) %}
-    {{ dump(scope) }}
+    {% import _self as macros %}
+
+    <!-- Slider main container -->
+    <div class="Slider swiper" data-swiper>
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% for item in scope.items %}
+                <div class="swiper-slide">
+                    {{ macros.slide(item) }}
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
 {% endmacro %}
 
 {{ macros.content(scope) }}
