@@ -1,0 +1,11 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro content(scope) %}
+    {{ dump(scope) }}
+{% endmacro %}
+
+{{ macros.content(scope) }}

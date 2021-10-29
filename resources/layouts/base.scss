@@ -6,6 +6,18 @@
     &__main {
         flex: 1;
     }
+
+    &__section {
+        padding-y: 80px;
+
+        &--slider {
+            padding-y: 40px 60px;
+
+            @include vw-sm-down {
+                padding-y: 20px 40px;
+            }
+        }
+    }
 }
 
 .Container {
