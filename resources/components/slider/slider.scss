@@ -2,7 +2,16 @@
 }
 
 .Slide {
+    display: flex;
+    align-items: center;
+    padding-x: 144px;
+
     &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 
     &__title {

@@ -5,8 +5,25 @@
 } %}
 
 {% macro slide(data) %}
+    {% set data = {
+        desktopImage: data.desktopImage ?? '',
+        mobileImage: data.mobileImage ?? '',
+        title: data.title ?? '',
+        text: data.text ?? '',
+    } %}
+
     <div class="Slide">
-        {{ dump(data) }}
+        <picture class="Slide__picture">
+            <source media="(max-width: 799px)" srcset="{{ data.desktopImage }}">
+            <source media="(min-width: 800px)" srcset="{{ data.mobileImage }}">
+            <img src="{{ data.desktopImage }}" alt="{{ data.title }}" class="Slide__image">
+        </picture>
+        <h2 class="Slide__title">
+            {{ data.title|raw }}
+        </h2>
+        <p class="Slide__text">
+            {{ data.text|raw }}
+        </p>
     </div>
 {% endmacro %}
 
