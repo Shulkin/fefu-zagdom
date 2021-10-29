@@ -22,6 +22,7 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
+        "swiper": "^7.2.0",
         "uikit": "^3.7.5"
     }
 }
