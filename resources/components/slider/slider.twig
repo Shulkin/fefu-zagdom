@@ -14,16 +14,18 @@
 
     <div class="Slide">
         <picture class="Slide__picture">
-            <source media="(max-width: 799px)" srcset="{{ data.desktopImage }}">
-            <source media="(min-width: 800px)" srcset="{{ data.mobileImage }}">
+            <source media="(max-width: 639px)" srcset="{{ data.mobileImage }}">
+            <source media="(min-width: 640px)" srcset="{{ data.desktopImage }}">
             <img src="{{ data.desktopImage }}" alt="{{ data.title }}" class="Slide__image">
         </picture>
-        <h2 class="Slide__title">
-            {{ data.title|raw }}
-        </h2>
-        <p class="Slide__text">
-            {{ data.text|raw }}
-        </p>
+        <div class="Slide__content">
+            <h2 class="Slide__title">
+                {{ data.title|raw }}
+            </h2>
+            <p class="Slide__text">
+                {{ data.text|raw }}
+            </p>
+        </div>
     </div>
 {% endmacro %}
 
