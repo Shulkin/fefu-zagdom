@@ -1,6 +1,7 @@
 // Variables
 $color-black: black;
 $color-gray: #666666;
+$color-gray--light: #C6C6C6;
 $color-green: #029F59;
 $color-green--dark: #254741;
 
@@ -15,6 +16,7 @@ $font-weight-bold: 700;
 
 @import "./media.scss";
 @import "./uikit.scss";
+@import "./swiper.scss";
 @import "../layouts/base.scss";
 
 // Elements
