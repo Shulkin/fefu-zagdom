@@ -17,6 +17,11 @@
                 padding-y: 20px 40px;
             }
         }
+
+        &--featured {
+            @include vw-sm-down {
+            }
+        }
     }
 }
 

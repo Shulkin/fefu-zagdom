@@ -21,6 +21,22 @@
             text: 'Duis vel magna varius, egestas dolor et, pulvinar nibh.',
         },
     ],
+    featuredSection: {
+        title: 'Каждый проект<br>для нас — важный',
+        text: 'Мы строительная компания полного цикла.<br><br>Вникаем во все детали, разрабатываем планировку будущего дома, продумываем конструктивные решения и общую архитектурную концепцию',
+        items: [
+            {
+                icon: 'icons/house-green.svg'|asset,
+                title: '57 домов',
+                text: 'спроектировали и построили “под ключ”',
+            },
+            {
+                icon: 'icons/calendar-green.svg'|asset,
+                title: '14 лет',
+                text: 'мы на рынке загородного строительства',
+            },
+        ],
+    },
 } %}
 
 {% block main %}
@@ -28,6 +44,14 @@
         <div class="Layout__section Layout__section--slider">
             {% include '@components/slider/slider.twig' with {
                 items: scope.slides,
+            } %}
+        </div>
+
+        <div class="Layout__section Layout__section--featured">
+            {% include '@components/featured-section/featured-section.twig' with {
+                title: scope.featuredSection.title,
+                text: scope.featuredSection.text,
+                items: scope.featuredSection.items,
             } %}
         </div>
     </div>
