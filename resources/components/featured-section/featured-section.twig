@@ -14,7 +14,17 @@
     } %}
 
     <div class="FeaturedItem">
-        {{ dump(data) }}
+        <img
+            src="{{ data.icon }}"
+            alt="" width="20" height="20"
+            class="FeaturedItem__icon"
+        >
+        <h3 class="FeaturedItem__title">
+            {{ data.title|raw }}
+        </h3>
+        <p class="FeaturedItem__text">
+            {{ data.text|raw }}
+        </p>
     </div>
 {% endmacro %}
 
