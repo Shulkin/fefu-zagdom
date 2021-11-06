@@ -1,9 +1,9 @@
 /node_modules
-
 /public/hot
 /public/storage
-/public/css
 /public/js
+/public/css
+/public/build
 /public/mix-manifest.json
 
 package-lock.json
