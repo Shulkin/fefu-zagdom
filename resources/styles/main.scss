@@ -1,17 +1,11 @@
-@import "base.scss";
+@import "null.scss";
+@import "../layouts/base.scss";
+@import "../components/header/header.scss";
+@import "../components/footer/footer.scss";
 
 $primary: red;
 $secondary: blue;
 
 body {
     font-family: 'Open Sans', sans-serif;
-}
-
-.hello {
-    color: $primary;
-    font-family: 'Monserrat', sans-serif;
-}
-
-.lorem {
-    color: $secondary;
 }
