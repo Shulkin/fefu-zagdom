@@ -1,2 +1,3 @@
-require('./bootstrap');
-console.log('hello world!')
+import './bootstrap';
+
+console.log('hello world!');
