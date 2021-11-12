@@ -25,6 +25,20 @@
                 padding-y: 40px 80px;
             }
         }
+
+        &--projects {
+            background-color: $color-snow-drift;
+
+            padding: 92px 60px;
+
+            @include vw-sm-down {
+                padding: 32px 16px;
+            }
+        }
+
+        &--newsList {
+            padding: 80px 82px;
+        }
     }
 }
 

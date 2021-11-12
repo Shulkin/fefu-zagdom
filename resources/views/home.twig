@@ -37,6 +37,44 @@
             },
         ],
     },
+    projectsSection: [
+        {
+            image: 'images/mockup/projects/projects-1.png'|asset,
+            title: 'Дом в скандинавском стиле',
+            description: 'Одноэтажный дом из газобетона габаритными размерами 10.73 х 10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей\n\nПостроен по индивидуальному проекту.',
+        },
+        {
+            image: 'images/mockup/projects/projects-2.png'|asset,
+            title: 'Дом из газобетона',
+            description: 'Одноэтажный дом габаритными размерами 15.2 х 9.7м. Приведенная площадь – 127.7 м.кв.\n\nТри спальные комнаты, два сан.узла, большая кухня-гостиная с выходом на террасу. ',
+        },
+    ],
+    news: [
+        {
+            title: 'Как сделать строительство дешевле?',
+            description: 'Строительство дома можно сделать дешевле — выбрав проект...',
+            date: '20 авг 2021',
+            picture: 'images/mockup/news/news-1.png'|asset,
+        },
+        {
+            title: 'Почему Гуд Вилл строит лучшие дома?',
+            description: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
+            date: '19 авг 2021',
+            picture: 'images/mockup/news/news-2.png'|asset,
+        },
+        {
+            title: 'Преимущества и недостатки частного дома',
+            description: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
+            date: '18 авг 2021',
+            picture: 'images/mockup/news/news-3.png'|asset,
+        },
+        {
+            title: 'Из чего мы строим дома в ипотеку?',
+            description: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
+            date: '17 авг 2021',
+            picture: 'images/mockup/news/news-4.png'|asset,
+        },
+    ],
 } %}
 
 {% block main %}
@@ -54,5 +92,11 @@
                 items: scope.featuredSection.items,
             } %}
         </div>
+    </div>
+
+    <div class="Layout__section Layout__section--projects">
+        {% include '@components/projects-section/projects-section.twig' with {
+            items: scope.projectsSection,
+        } %}
     </div>
 {% endblock %}

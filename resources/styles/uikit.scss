@@ -21,7 +21,7 @@ $container-xsmall-max-width: 720px;
 
 $container-padding-horizontal-m: 22px;
 $container-padding-horizontal-s: 16px;
-$container-padding-horizontal: 16px;
+$container-padding-horizontal: $container-padding-horizontal-s;
 
 $button-primary-background: $color-green;
 $button-primary-color: white;
