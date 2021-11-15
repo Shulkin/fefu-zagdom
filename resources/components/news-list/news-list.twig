@@ -1,0 +1,26 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro content(scope) %}
+    <section class="NewsList">
+        <nav class="NewsList__nav">
+            <h2 class="NewsList__title">Новости</h2>
+            <a class="Button Button--secondary" href="#news">Все новости</a>
+        </nav>
+        <div class="NewsList__container">
+            {% for article in scope.items %}
+                <div class="NewsList__item">
+                    <img class="NewsList__itemPicture" src="{{ article.picture }}" alt="{{ article.title }}">
+                    <span class="NewsList__itemDate">{{ article.date }}</span>
+                    <h4 class="NewsList__itemTitle">{{ article.title }}</h4>
+                    <span class="NewsList__itemDescription">{{ article.description }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endmacro %}
+
+{{ macros.content(scope) }}
