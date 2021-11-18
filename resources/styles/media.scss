@@ -1,16 +1,29 @@
 @import 'settings';
 
+$breakpoint-xxs: $breakpoint-xxsmall;
 $breakpoint-xs: $breakpoint-xsmall;
 $breakpoint-sm: $breakpoint-small;
 $breakpoint-md: $breakpoint-medium;
 $breakpoint-lg: $breakpoint-large;
 $breakpoint-xl: $breakpoint-xlarge;
 
+@function vw-up($bp) {
+    @return '(min-width: #{$bp})';
+}
 @function vw-down($bp) {
     @return '(max-width: #{$bp - 1})';
 }
-@function vw-up($bp) {
-    @return '(min-width: #{$bp})';
+
+$bp-xxs: $breakpoint-xxs;
+@mixin vw-xxs-up {
+    @media #{vw-up($bp-xxs)} {
+        @content;
+    }
+}
+@mixin vw-xxs-down {
+    @media #{vw-down($bp-xxs)} {
+        @content;
+    }
 }
 
 $bp-xs: $breakpoint-xs;

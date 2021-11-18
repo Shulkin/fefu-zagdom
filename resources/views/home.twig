@@ -37,42 +37,42 @@
             },
         ],
     },
-    projectsSection: [
+    projects: [
         {
-            image: 'images/mockup/projects/projects-1.png'|asset,
+            image: 'images/mockup/projects/project-1.png'|asset,
             title: 'Дом в скандинавском стиле',
-            description: 'Одноэтажный дом из газобетона габаритными размерами 10.73 х 10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей\n\nПостроен по индивидуальному проекту.',
+            text: 'Одноэтажный дом из газобетона габаритными размерами 10.73 х 10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей\n\nПостроен по индивидуальному проекту.',
         },
         {
-            image: 'images/mockup/projects/projects-2.png'|asset,
+            image: 'images/mockup/projects/project-2.png'|asset,
             title: 'Дом из газобетона',
-            description: 'Одноэтажный дом габаритными размерами 15.2 х 9.7м. Приведенная площадь – 127.7 м.кв.\n\nТри спальные комнаты, два сан.узла, большая кухня-гостиная с выходом на террасу. ',
+            text: 'Одноэтажный дом габаритными размерами 15.2 х 9.7м. Приведенная площадь – 127.7 м.кв.\n\nТри спальные комнаты, два сан.узла, большая кухня-гостиная с выходом на террасу.',
         },
     ],
     news: [
         {
-            title: 'Как сделать строительство дешевле?',
-            description: 'Строительство дома можно сделать дешевле — выбрав проект...',
+            image: 'images/mockup/news/news-1.png'|asset,
             date: '20 авг 2021',
-            picture: 'images/mockup/news/news-1.png'|asset,
+            title: 'Как сделать строительство дешевле?',
+            text: 'Строительство дома можно сделать дешевле — выбрав проект...',
         },
         {
-            title: 'Почему Гуд Вилл строит лучшие дома?',
-            description: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
+            image: 'images/mockup/news/news-2.png'|asset,
             date: '19 авг 2021',
-            picture: 'images/mockup/news/news-2.png'|asset,
+            title: 'Почему Гуд Вилл строит лучшие дома?',
+            text: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
         },
         {
-            title: 'Преимущества и недостатки частного дома',
-            description: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
+            image: 'images/mockup/news/news-3.png'|asset,
             date: '18 авг 2021',
-            picture: 'images/mockup/news/news-3.png'|asset,
+            title: 'Преимущества и недостатки частного дома',
+            text: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
         },
         {
-            title: 'Из чего мы строим дома в ипотеку?',
-            description: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
+            image: 'images/mockup/news/news-4.png'|asset,
             date: '17 авг 2021',
-            picture: 'images/mockup/news/news-4.png'|asset,
+            title: 'Из чего мы строим дома в ипотеку?',
+            text: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
         },
     ],
 } %}
@@ -95,8 +95,10 @@
     </div>
 
     <div class="Layout__section Layout__section--projects">
-        {% include '@components/projects-section/projects-section.twig' with {
-            items: scope.projectsSection,
-        } %}
+        <div class="Container">
+            {% include '@components/projects-section/projects-section.twig' with {
+                items: scope.projects,
+            } %}
+        </div>
     </div>
 {% endblock %}

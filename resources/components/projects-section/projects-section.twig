@@ -4,30 +4,44 @@
     items: items ?? [],
 } %}
 
+{% macro project(data) %}
+    {% set data = {
+        image: data.image ?? '',
+        title: data.title ?? '',
+        text: data.text ?? '',
+    } %}
+
+    <div class="ProjectCard">
+        <div class="ProjectCard__description">
+            <h3 class="ProjectCard__title">
+                {{ data.title|raw }}
+            </h3>
+            <p class="ProjectCard__text">
+                {{ data.text|nl2br }}
+            </p>
+        </div>
+        <img
+            src="{{ data.image }}"
+            alt="{{ data.title }}"
+            class="ProjectCard__image"
+        >
+    </div>
+{% endmacro %}
+
 {% macro content(scope) %}
+    {% import _self as macros %}
+
     <section class="ProjectsSection">
         <h2 class="ProjectsSection__title">
             Реализованные проекты
         </h2>
-        <div class="ProjectsSection__container">
-            {% for project in scope.items %}
-                <div class="ProjectsSection__item">
-                    <div class="ProjectsSection__textBlock">
-                        <h4 class="ProjectsSection__itemTitle">
-                            {{ project.title }}
-                        </h4>
-                        <p class="ProjectsSection__itemDescription">
-                            {{ project.description|nl2br }}
-                        </p>
-                    </div>
-                    <img
-                        class="ProjectsSection__imageBlock"
-                        src="{{ project.image }}"
-                        alt="{{ project.title }}"
-                    />
-                </div>
+        <ul class="ProjectsSection__grid">
+            {% for item in scope.items %}
+                <li class="ProjectsSection__item">
+                    {{ macros.project(item) }}
+                </li>
             {% endfor %}
-        </div>
+        </ul>
     </section>
 {% endmacro %}
 

@@ -1,90 +1,99 @@
 .ProjectsSection {
     &__title {
-        margin-bottom: 32px;
+        @include section-title-mixin;
+    }
 
-        @include section-title-mix;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 16px;
+        list-style: none;
 
         @include vw-md-down {
-            font-size: 28px;
+            grid-template-columns: 1fr;
         }
 
         @include vw-sm-down {
-            margin-bottom: 24px;
-        }
-    }
-
-    &__container {
-        display: grid;
-        grid-gap: 16px;
-        grid-template-columns: repeat(2, 1fr);
-
-        @include vw-lg-down {
+            display: flex;
             grid-gap: 0;
             margin: 0 #{-$container-padding-horizontal};
-            display: flex;
             padding-left: $container-padding-horizontal;
             overflow-x: auto;
-        }
 
-        &::after {
-            content: "";
-            flex-shrink: 0;
-            flex-grow: 0;
-            width: $container-padding-horizontal;
+            &::after {
+                content: "";
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: $container-padding-horizontal;
+            }
         }
     }
 
     &__item {
-        display: flex;
-        flex-direction: row;
-        background-color: white;
-        border-radius: 20px;
-        overflow: hidden;
-        min-width: 150px;
-
-        @include vw-lg-down {
-            flex-direction: column;
-            flex-shrink: 0;
-            max-width: 280px;
-            width: 80%;
-        }
-
-        &:not(:last-child) {
-            margin-right: 16px;
+        @include vw-sm-down {
+            &:not(:last-child) {
+                margin-right: 16px;
+            }
         }
     }
+}
 
-    &__textBlock {
-        padding: 30px 16px 30px 30px;
+.ProjectCard {
+    display: flex;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include vw-sm-down {
+        flex-direction: column;
+        max-width: 304px;
+        min-width: 260px;
+    }
+
+    @include vw-xs-down {
+        min-width: 304px;
+    }
+
+    @include vw-xxs-down {
+        min-width: 260px;
+    }
+
+    &__description {
+        min-width: 280px;
+        padding: 32px 16px 32px 32px;
+
+        @include vw-lg-down {
+            min-width: 230px;
+        }
+
+        @include vw-md-down {
+            min-width: unset;
+        }
 
         @include vw-sm-down {
             padding: 20px 24px;
         }
     }
 
-    &__itemTitle {
+    &__title {
         margin-bottom: 12px;
-
-        font-weight: 500;
+        font-weight: $font-weight-medium;
         font-size: toRem(20px);
-        line-height: 120%;
+        line-height: 1.2;
     }
 
-    &__itemDescription {
-        font-family: 'Open Sans', sans-serif;
+    &__text {
         font-size: toRem(16px);
-        line-height: 135%;
+        line-height: 1.35;
     }
 
-    &__imageBlock {
-        object-position: center;
+    &__image {
         object-fit: cover;
-
-        @include vw-lg-down {
-            order: -1;
-        }
+        object-position: center;
 
         @include vw-sm-down {
+            order: -1;
             height: 150px;
         }
     }

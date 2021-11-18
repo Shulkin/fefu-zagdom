@@ -1,6 +1,12 @@
-@mixin section-title-mix {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+@mixin section-title-mixin {
+    margin-bottom: 32px;
+    font-weight: $font-weight-bold;
     font-size: toRem(38px);
-    line-height: 120%;
+    line-height: 1.2;
+    color: $color-black;
+
+    @include vw-sm-down {
+        margin-bottom: 24px;
+        font-size: toRem(28px);
+    }
 }

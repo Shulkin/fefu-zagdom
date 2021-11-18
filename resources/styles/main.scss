@@ -15,10 +15,17 @@ $font-weight-bold: 700;
     @return $size / 16px * 1rem;
 }
 
+// Media
 @import "./media.scss";
+
+// Vendor
 @import "./uikit.scss";
 @import "./swiper.scss";
+
+// Mixins
 @import "./mixins.scss";
+
+// Layouts
 @import "../layouts/base.scss";
 
 // Elements

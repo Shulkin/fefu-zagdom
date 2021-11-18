@@ -7,7 +7,7 @@
     }
 
     &__title {
-        @include section-title-mix;
+        @include section-title-mixin;
     }
 
     &__container {
