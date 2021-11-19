@@ -3,7 +3,12 @@
 {% set scope = {
     phone: '+7 (900) 900-90-90',
     email: 'info@gmail.com',
-    location: 'г. Владивосток<br>ул. Выселковая 49, стр. 3'
+    location: 'г. Владивосток<br>ул. Выселковая 49, стр. 3',
+    icons: {
+        phone: ('icons/phone-' ~ (alternativeIcon ? 'green' : 'white') ~ '.svg')|asset,
+        email: ('icons/email-' ~ (alternativeIcon ? 'green' : 'white') ~ '.svg')|asset,
+        location: ('icons/location-marker-' ~ (alternativeIcon ? 'green' : 'white') ~ '.svg')|asset,
+    },
 } %}
 
 {% macro content(scope) %}
@@ -11,7 +16,7 @@
         <div>
             <a href="tel:{{ scope.phone }}" class="ContactsItem">
                 <img
-                    src="{{ 'icons/phone-white.svg'|asset }}"
+                    src="{{ scope.icons.phone }}"
                     alt="" width="24" height="14"
                     class="ContactsItem__icon"
                 >
@@ -22,7 +27,7 @@
         <div>
             <a href="email:{{ scope.email }}" class="ContactsItem">
                 <img
-                    src="{{ 'icons/email-white.svg'|asset }}"
+                    src="{{ scope.icons.email }}"
                     alt="" width="24" height="14"
                     class="ContactsItem__icon"
                 >
@@ -33,7 +38,7 @@
         <div>
             <span class="ContactsItem">
                 <img
-                    src="{{ 'icons/location-marker-white.svg'|asset }}"
+                    src="{{ scope.icons.location }}"
                     alt="" width="24" height="14"
                     class="ContactsItem__icon"
                 >
