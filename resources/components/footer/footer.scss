@@ -27,6 +27,9 @@
     }
 
     &__link {
+        font-size: toRem(14px);
+        line-height: 1.2;
+        color: rgba(white, 0.6);
     }
 }
 
