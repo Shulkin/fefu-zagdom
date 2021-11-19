@@ -25,7 +25,9 @@
             {{ data.title|raw }}
         </h3>
         <p>
-            {{ data.text }}
+            {% set limit = 40 %}
+            {% set text = data.text|length > limit ? data.text|striptags|slice(0, limit) ~ '...' : data.text %}
+            {{ text|raw }}
         </p>
     </article>
 {% endmacro %}
