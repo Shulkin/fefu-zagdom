@@ -1,4 +1,11 @@
 .Footer {
+    padding-y: 32px;
+    background-color: $color-green--dark;
+
+    @include vw-sm-down {
+        padding-y: 40px;
+    }
+
     &__logo {
     }
 
