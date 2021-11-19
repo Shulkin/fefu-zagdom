@@ -4,22 +4,52 @@
     items: items ?? [],
 } %}
 
+{% macro news(data) %}
+    {% set data = {
+        image: data.image ?? '',
+        date: data.date ?? '',
+        title: data.title ?? '',
+        text: data.text ?? '',
+    } %}
+
+    <article class="NewsCard">
+        <img
+            src="{{ data.image }}"
+            alt="{{ data.title }}"
+            class="NewsCard__image"
+        >
+        <span class="NewsCard__date">
+            {{ data.date }}
+        </span>
+        <h3 class="NewsCard__title">
+            {{ data.title|raw }}
+        </h3>
+        <p>
+            {# TODO: Truncate text #}
+            {{ data.text }}
+        </p>
+    </article>
+{% endmacro %}
+
 {% macro content(scope) %}
+    {% import _self as macros %}
+
     <section class="NewsList">
-        <nav class="NewsList__nav">
-            <h2 class="NewsList__title">Новости</h2>
-            <a class="Button Button--secondary" href="#news">Все новости</a>
-        </nav>
-        <div class="NewsList__container">
-            {% for article in scope.items %}
-                <div class="NewsList__item">
-                    <img class="NewsList__itemPicture" src="{{ article.picture }}" alt="{{ article.title }}">
-                    <span class="NewsList__itemDate">{{ article.date }}</span>
-                    <h4 class="NewsList__itemTitle">{{ article.title }}</h4>
-                    <span class="NewsList__itemDescription">{{ article.description }}</span>
-                </div>
+        <header class="NewsList__header">
+            <h2 class="NewsList__title">
+                Новости
+            </h2>
+            <a href="/" class="Button Button--secondary">
+                Все новости
+            </a>
+        </header>
+        <ul class="NewsList__list">
+            {% for item in scope.items %}
+                <li class="NewsList__item">
+                    {{ macros.news(item) }}
+                </li>
             {% endfor %}
-        </div>
+        </ul>
     </section>
 {% endmacro %}
 

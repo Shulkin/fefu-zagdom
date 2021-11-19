@@ -1,9 +1,15 @@
 .ProjectsSection {
     &__title {
         @include section-title-mixin;
+
+        margin-bottom: 32px;
+
+        @include vw-sm-down {
+            margin-bottom: 24px;
+        }
     }
 
-    &__grid {
+    &__list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 16px;
@@ -14,18 +20,7 @@
         }
 
         @include vw-sm-down {
-            display: flex;
-            grid-gap: 0;
-            margin: 0 #{-$container-padding-horizontal};
-            padding-left: $container-padding-horizontal;
-            overflow-x: auto;
-
-            &::after {
-                content: "";
-                flex-shrink: 0;
-                flex-grow: 0;
-                width: $container-padding-horizontal;
-            }
+            @include overflow-slider-mixin;
         }
     }
 
@@ -81,16 +76,12 @@
         font-weight: $font-weight-medium;
         font-size: toRem(20px);
         line-height: 1.2;
-    }
-
-    &__text {
-        font-size: toRem(16px);
-        line-height: 1.35;
+        color: $color-black;
     }
 
     &__image {
-        object-fit: cover;
         object-position: center;
+        object-fit: cover;
 
         @include vw-sm-down {
             order: -1;

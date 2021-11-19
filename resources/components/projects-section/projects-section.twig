@@ -11,12 +11,12 @@
         text: data.text ?? '',
     } %}
 
-    <div class="ProjectCard">
+    <article class="ProjectCard">
         <div class="ProjectCard__description">
             <h3 class="ProjectCard__title">
                 {{ data.title|raw }}
             </h3>
-            <p class="ProjectCard__text">
+            <p>
                 {{ data.text|nl2br }}
             </p>
         </div>
@@ -25,7 +25,7 @@
             alt="{{ data.title }}"
             class="ProjectCard__image"
         >
-    </div>
+    </article>
 {% endmacro %}
 
 {% macro content(scope) %}
@@ -35,7 +35,7 @@
         <h2 class="ProjectsSection__title">
             Реализованные проекты
         </h2>
-        <ul class="ProjectsSection__grid">
+        <ul class="ProjectsSection__list">
             {% for item in scope.items %}
                 <li class="ProjectsSection__item">
                     {{ macros.project(item) }}
