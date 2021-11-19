@@ -39,7 +39,7 @@
 {% endmacro %}
 
 {% macro button() %}
-    <button type="button" class="Button Button--primary">
+    <button type="button" class="Button Button--primary" data-uk-toggle="#feedback">
         Оставить заявку
     </button>
 {% endmacro %}
@@ -49,7 +49,7 @@
         type="button"
         id="offcanvas-button"
         class="Button Button--primary Button--icon"
-        uk-toggle="target: #offcanvas"
+        data-uk-toggle="target: #offcanvas"
     >
         <img
             src="{{ 'icons/list-white.svg'|asset }}"
@@ -59,7 +59,7 @@
 {% endmacro %}
 
 {% macro offCanvas(scope) %}
-    <div id="offcanvas" class="OffCanvas" uk-offcanvas="overlay: true; flip: true">
+    <div id="offcanvas" class="OffCanvas" data-uk-offcanvas="overlay: true; flip: true">
         <div class="uk-offcanvas-bar OffCanvas__layout">
             <button type="button" class="uk-offcanvas-close OffCanvas__close">
                 <img

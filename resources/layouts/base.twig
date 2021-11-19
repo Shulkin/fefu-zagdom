@@ -33,6 +33,10 @@
             </footer>
         </div>
 
+        {% block modals %}
+            {% include '@components/feedback-modal/feedback-modal.twig' %}
+        {% endblock %}
+
         <script type="text/javascript" src="/build/bundle.js"></script>
     </body>
 </html>
