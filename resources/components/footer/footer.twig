@@ -74,34 +74,36 @@
 
     <div class="Footer">
         <div class="Container">
-            <div class="Footer__logo">
-                {{ macros.logo }}
-            </div>
+            <div class="Footer__layout">
+                <div class="Footer__logo">
+                    {{ macros.logo }}
+                </div>
 
-            <nav class="Footer__nav">
-                {% include '@components/site-nav/site-nav.twig' with {
-                    items: scope.menu,
-                    column: true,
-                    white: true,
-                } %}
-            </nav>
+                <nav class="Footer__nav">
+                    {% include '@components/site-nav/site-nav.twig' with {
+                        items: scope.menu,
+                        column: true,
+                        white: true,
+                    } %}
+                </nav>
 
-            <div class="Footer__contacts">
-                {% include '@components/contacts/contacts.twig' with {
-                    alternativeIcon: true,
-                } %}
-            </div>
+                <div class="Footer__contacts">
+                    {% include '@components/contacts/contacts.twig' with {
+                        alternativeIcon: true,
+                    } %}
+                </div>
 
-            <div class="Footer__feedbackButton">
-                {{ macros.button }}
-            </div>
+                <div class="Footer__feedbackButton">
+                    {{ macros.button }}
+                </div>
 
-            <div class="Footer_copyright">
-                {{ macros.copyright(scope.copyright) }}
-            </div>
+                <div class="Footer__copyright">
+                    {{ macros.copyright(scope.copyright) }}
+                </div>
 
-            <div class="Footer_links">
-                {{ macros.links(scope.links) }}
+                <div class="Footer__links">
+                    {{ macros.links(scope.links) }}
+                </div>
             </div>
         </div>
     </div>
