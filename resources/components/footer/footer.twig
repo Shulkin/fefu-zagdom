@@ -1,9 +1,105 @@
 {% import _self as macros %}
 
-{% macro content() %}
-    <div class="Container">
-        Footer
+{% set completionYear = '2021' %}
+{% set now = 'now'|date('Y') %}
+{# Compare strings because the chronological order is the same as the lexicographical order #}
+{% set year = now > completionYear ? completionYear ~ '–' ~ now : now %}
+
+{% set scope = {
+    menu: [
+        {
+            url: '/',
+            name: 'Реализованные проекты',
+        },
+        {
+            url: '/',
+            name: 'Новости',
+        },
+        {
+            url: '/',
+            name: 'Контакты',
+        },
+    ],
+    copyright: '&copy; Загдом, ' ~ year,
+    links: [
+        {
+            url: '/',
+            name: 'Политика конфиденциальности',
+        },
+        {
+            url: '/',
+            name: 'Пользовательское соглашение',
+        },
+    ],
+} %}
+
+{% macro logo() %}
+    <img
+        src="{{ 'images/logo-white.png'|asset }}"
+        alt="Загородный дом"
+    >
+{% endmacro %}
+
+{% macro button() %}
+    <button type="button" class="Button Button--primary">
+        Оставить заявку
+    </button>
+{% endmacro %}
+
+{% macro copyright(value) %}
+    <span class="Footer__link">
+        {{ value|raw }}
+    </span>
+{% endmacro %}
+
+{% macro links(items) %}
+    <ul class="FooterLinks">
+        {% for item in items %}
+            {% set item = {
+                url: item.url ?? '',
+                name: item.name ?? '',
+            } %}
+
+            <li class="FooterLinks__item">
+                <a href="{{ item.url }}" class="Footer__link">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro content(scope) %}
+    {% import _self as macros %}
+
+    <div class="Container Footer">
+        <div class="Footer__logo">
+            {{ macros.logo }}
+        </div>
+
+        <nav class="Footer__nav">
+            {% include '@components/site-nav/site-nav.twig' with {
+                items: scope.menu,
+                column: true,
+            } %}
+        </nav>
+
+        <div class="Footer__contacts">
+            {% include '@components/contacts/contacts.twig' %}
+        </div>
+
+        <div class="Footer__feedbackButton">
+            {{ macros.button }}
+        </div>
+
+        <div class="Footer_copyright">
+            {{ macros.copyright(scope.copyright) }}
+        </div>
+
+        <div class="Footer_links">
+            {{ macros.links(scope.links) }}
+        </div>
     </div>
 {% endmacro %}
 
-{{ macros.content }}
+{{ macros.content(scope) }}
