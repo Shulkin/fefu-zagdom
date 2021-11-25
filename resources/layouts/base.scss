@@ -32,6 +32,22 @@
     }
 }
 
+.Page {
+    &__breadcrumbs {
+        padding-y: 40px 48px;
+
+        @include vw-sm-down {
+            padding-y: 20px 32px;
+        }
+    }
+
+    &__title {
+        @include page-title-mixin;
+
+        margin-bottom: 32px;
+    }
+}
+
 .Container {
     @extend .uk-container;
 }

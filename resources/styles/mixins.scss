@@ -1,11 +1,26 @@
-@mixin section-title-mixin {
+@mixin title-mixin {
     font-weight: $font-weight-bold;
-    font-size: toRem(38px);
     line-height: 1.2;
     color: $color-black;
+}
+
+@mixin section-title-mixin {
+    @include title-mixin;
+
+    font-size: toRem(38px);
 
     @include vw-sm-down {
         font-size: toRem(28px);
+    }
+}
+
+@mixin page-title-mixin {
+    @include title-mixin;
+
+    font-size: toRem(46px);
+
+    @include vw-sm-down {
+        font-size: toRem(32px);
     }
 }
 

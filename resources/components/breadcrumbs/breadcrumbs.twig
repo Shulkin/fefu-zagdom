@@ -1,0 +1,36 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro crumb(data) %}
+    {% set data = {
+        label: data.label ?? '',
+        link: data.link ?? '',
+    } %}
+
+    {% if data.link != '' %}
+        <a href="{{ data.link }}" class="Breadcrumbs__link">
+            {{- data.label|raw -}}
+        </a>
+    {% else %}
+        <span>
+            {{- data.label|raw -}}
+        </span>
+    {% endif %}
+{% endmacro %}
+
+{% macro content(scope) %}
+    {% import _self as macros %}
+
+    <ul class="Breadcrumbs">
+        {% for item in scope.items %}
+            <li class="Breadcrumbs__item">
+                {{ macros.crumb(item) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{{ macros.content(scope) }}

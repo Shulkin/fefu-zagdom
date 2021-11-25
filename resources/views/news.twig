@@ -1,6 +1,16 @@
 {% extends '@layouts/base.twig' %}
 
 {% set scope = {
+    breadcrumbs: [
+        {
+            label: 'Главная',
+            link: route('home'),
+        },
+        {
+            label: 'Новости',
+            link: '',
+        },
+    ],
     news: [
         {
             image: 'images/mockup/news/news-1.png'|asset,
@@ -54,7 +64,14 @@
 } %}
 
 {% block main %}
-    <div class="Container">
-        {{ dump(scope) }}
+    <div class="Container Page">
+        <div class="Page__breadcrumbs">
+            {% include '@components/breadcrumbs/breadcrumbs.twig' with {
+                items: scope.breadcrumbs,
+            } %}
+        </div>
+        <h1 class="Page__title">
+            Новости
+        </h1>
     </div>
 {% endblock %}
