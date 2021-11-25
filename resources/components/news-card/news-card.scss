@@ -1,0 +1,37 @@
+.NewsCard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    line-height: 1.2;
+
+    @include vw-sm-down {
+        width: 344px;
+    }
+
+    @include vw-xxs-down {
+        width: 288px;
+    }
+
+    &__image {
+        height: 200px;
+        margin-bottom: 16px;
+        border-radius: 20px 20px 0 0;
+        object-position: center;
+        object-fit: cover;
+    }
+
+    &__date {
+        margin-bottom: 16px;
+        font-family: $base-heading-font-family;
+        font-size: toRem(14px);
+        color: $color-black;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: toRem(20px);
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        color: $color-black;
+    }
+}

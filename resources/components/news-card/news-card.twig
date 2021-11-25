@@ -1,0 +1,31 @@
+{% import _self as macros %}
+
+{% set scope = {
+    image: image ?? '',
+    date: date ?? '',
+    title: title ?? '',
+    text: text ?? '',
+} %}
+
+{% macro content(scope) %}
+    <article class="NewsCard">
+        <img
+            src="{{ scope.image }}"
+            alt="{{ scope.title }}"
+            class="NewsCard__image"
+        >
+        <span class="NewsCard__date">
+            {{ scope.date }}
+        </span>
+        <h3 class="NewsCard__title">
+            {{ scope.title|raw }}
+        </h3>
+        <p>
+            {% set limit = 40 %}
+            {% set text = scope.text|length > limit ? scope.text|striptags|slice(0, limit) ~ '...' : scope.text %}
+            {{ text|raw }}
+        </p>
+    </article>
+{% endmacro %}
+
+{{ macros.content(scope) }}
