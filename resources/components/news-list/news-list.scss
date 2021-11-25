@@ -27,7 +27,7 @@
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 24px 16px;
+        grid-gap: 32px 16px;
         list-style: none;
 
         @include vw-lg-down {
