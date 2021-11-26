@@ -17,4 +17,12 @@
             grid-template-columns: 1fr;
         }
     }
+
+    &__pagination {
+        padding-top: 40px;
+
+        @include vw-sm-down {
+            padding-top: 32px;
+        }
+    }
 }

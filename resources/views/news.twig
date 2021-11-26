@@ -89,5 +89,13 @@
                 </li>
             {% endfor %}
         </ul>
+        {% if scope.news.lastPage > 1 %}
+            <div class="NewsPage__pagination">
+                {% include '@components/pagination/pagination.twig' with {
+                    currentPage: scope.news.currentPage,
+                    lastPage: scope.news.lastPage,
+                } %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

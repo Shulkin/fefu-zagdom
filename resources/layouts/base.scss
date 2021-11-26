@@ -33,11 +33,17 @@
 }
 
 .Page {
+    padding-y: 40px 80px;
+
+    @include vw-sm-down {
+        padding-top: 20px;
+    }
+
     &__breadcrumbs {
-        padding-y: 40px 48px;
+        padding-bottom: 48px;
 
         @include vw-sm-down {
-            padding-y: 20px 32px;
+            padding-bottom: 32px;
         }
     }
 
