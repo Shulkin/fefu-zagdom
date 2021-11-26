@@ -6,10 +6,10 @@
 
 {% macro news(data) %}
     {% set data = {
-        image: data.image ?? '',
-        date: data.date ?? '',
-        title: data.title ?? '',
-        text: data.text ?? '',
+        image: data.image|asset|default(''),
+        date: data.created_at|formatDate|default(''),
+        title: data.title|default(''),
+        text: data.description|default(''),
     } %}
 
     <article class="NewsCard">

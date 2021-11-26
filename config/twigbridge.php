@@ -127,6 +127,8 @@ return [
             // 'TwigBridge\Extension\Laravel\Form',
             // 'TwigBridge\Extension\Laravel\Html',
             // 'TwigBridge\Extension\Laravel\Legacy\Facades',
+
+            \App\Extensions\TwigBridge::class,
         ],
 
         /*
