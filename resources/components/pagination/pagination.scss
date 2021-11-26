@@ -1,26 +1,100 @@
 .Pagination {
+    display: flex;
+    list-style: none;
+
     &__item {
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+
         &--desktop {
+            @include vw-sm-down {
+                display: none;
+            }
         }
 
         &--mobile {
+            @include vw-sm-up {
+                display: none;
+            }
+        }
+
+        :root & {
+            &--prev {
+                margin-x: 0 24px;
+            }
+
+            &--next {
+                margin-x: 16px 0;
+            }
         }
     }
 
     &__link {
-        &--prev {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: white;
+        border: 1px solid $color-gray--dusty;
+        border-radius: 10px;
+        font-family: $base-heading-font-family;
+        font-weight: $font-weight-medium;
+        font-size: toRem(16px);
+        color: $color-green--dark;
+        transition-property: background-color, color;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(white, 5%);
+            color: $color-green--dark;
+            text-decoration: none;
         }
 
+        &--prev,
         &--next {
+            background: $color-green;
+            color: white;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: darken($color-green, 5%);
+                color: white;
+            }
+
+            &:disabled {
+                background: $color-snow-drift;
+                border: 1px solid $color-gray--light;
+                color: $color-gray--light;
+            }
         }
 
-        &--ellipses {
-        }
+        :root & {
+            &--ellipses {
+                background: white;
+                color: $color-green--dark;
+            }
 
-        &--active {
+            &--active {
+                background: $color-green--dark;
+                color: white;
+            }
         }
     }
 
     &__mobileSelect {
+        height: 100%;
+        padding-x: 5px;
+        border: 1px solid $color-gray--dusty;
+        border-radius: 10px;
+        font-size: 16px;
+        text-align: center;
+        appearance: none;
     }
 }

@@ -5,6 +5,8 @@
     lastPage (int) : total number of pages
     queryParameters (array) : associative array that contains the current query parameters
     alwaysShowFirstAndLast (bool) : always show first and last link
+    extremePagesAmount (int): amount of first and last pages to be displayed
+    nearbyPagesAmount (int): number of pages that are displayed around the active page
     paginationPath (string) : route name to use for links
     urlType (string) : 'query' (`/news?page=4`) or 'slash' (`/news/4`) a way to build URL
 #}
@@ -14,6 +16,8 @@
     lastPage: lastPage ?? 0,
     queryParameters: queryParameters ?? {},
     alwaysShowFirstAndLast: alwaysShowFirstAndLast ?? true,
+    extremePagesAmount: extremePagesAmount ?? 2,
+    nearbyPagesAmount: nearbyPagesAmount ?? 1,
     paginationPath: paginationPath ?? '',
     urlType: urlType ?? 'query',
 } %}
@@ -60,7 +64,7 @@
     {% set title = type == 'prev' ? 'Назад' : 'Вперед' %}
     {% set modifier = type %}
 
-    <li class="Pagination__item">
+    <li class="Pagination__item Pagination__item--{{ modifier }}">
         <a
             href="{{ macros.paginationUrl(
                 scope,
@@ -79,7 +83,7 @@
     {% set icon = type == 'prev' ? 'angle-left' : 'angle-right' %}
     {% set modifier = type %}
 
-    <li class="Pagination__item">
+    <li class="Pagination__item Pagination__item--{{ modifier }}">
         <button
             type="button"
             class="Pagination__link Pagination__link--{{ modifier }}"
@@ -137,27 +141,22 @@
 {% macro content(scope) %}
     {% import _self as macros %}
 
-    {# The number of first and last pages to be displayed #}
-    {% set extremePagesLimit = 1 %}
-    {# The number of pages that are displayed around the active page #}
-    {% set nearbyPagesLimit = 2 %}
-
     {% if scope.lastPage > 1 %}
         <ul class="Pagination">
             {% if scope.currentPage > 1 %}
                 {{ macros.arrow(scope, 'prev') }}
 
-                {% for i in range(1, extremePagesLimit) %}
-                    {% if (i < scope.currentPage - nearbyPagesLimit) %}
+                {% for i in range(1, scope.extremePagesAmount) %}
+                    {% if (i < scope.currentPage - scope.nearbyPagesAmount) %}
                         {{ macros.item(scope, i) }}
                     {% endif %}
                 {% endfor %}
 
-                {% if extremePagesLimit + 1 < scope.currentPage - nearbyPagesLimit %}
+                {% if scope.extremePagesAmount + 1 < scope.currentPage - scope.nearbyPagesAmount %}
                     {{ macros.ellipses }}
                 {% endif %}
 
-                {% for i in range(scope.currentPage - nearbyPagesLimit, scope.currentPage - 1) %}
+                {% for i in range(scope.currentPage - scope.nearbyPagesAmount, scope.currentPage - 1) %}
                     {% if (i > 0) %}
                         {{ macros.item(scope, i) }}
                     {% endif %}
@@ -171,18 +170,18 @@
             {{ macros.currentPage(scope.currentPage) }}
 
             {% if scope.currentPage < scope.lastPage %}
-                {% for i in range(scope.currentPage + 1, scope.currentPage + nearbyPagesLimit) %}
+                {% for i in range(scope.currentPage + 1, scope.currentPage + scope.nearbyPagesAmount) %}
                     {% if (i <= scope.lastPage) %}
                         {{ macros.item(scope, i) }}
                     {% endif %}
                 {% endfor %}
 
-                {% if (scope.lastPage - extremePagesLimit) > (scope.currentPage + nearbyPagesLimit) %}
+                {% if (scope.lastPage - scope.extremePagesAmount) > (scope.currentPage + scope.nearbyPagesAmount) %}
                     {{ macros.ellipses }}
                 {% endif %}
 
-                {% for i in range(scope.lastPage - extremePagesLimit + 1, scope.lastPage) %}
-                    {% if (i > scope.currentPage + nearbyPagesLimit) %}
+                {% for i in range(scope.lastPage - scope.extremePagesAmount + 1, scope.lastPage) %}
+                    {% if (i > scope.currentPage + scope.nearbyPagesAmount) %}
                         {{ macros.item(scope, i) }}
                     {% endif %}
                 {% endfor %}
