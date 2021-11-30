@@ -12,58 +12,9 @@
         },
     ],
     news: {
-        items: [
-            {
-                image: 'images/mockup/news/news-1.png'|asset,
-                date: '20 авг 2021',
-                title: 'Как сделать строительство дешевле?',
-                text: 'Строительство дома можно сделать <b>дешевле — выбрав</b> проект...',
-            },
-            {
-                image: 'images/mockup/news/news-2.png'|asset,
-                date: '19 авг 2021',
-                title: 'Почему Гуд Вилл строит лучшие дома?',
-                text: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
-            },
-            {
-                image: 'images/mockup/news/news-3.png'|asset,
-                date: '18 авг 2021',
-                title: 'Преимущества и недостатки частного дома',
-                text: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
-            },
-            {
-                image: 'images/mockup/news/news-4.png'|asset,
-                date: '17 авг 2021',
-                title: 'Из чего мы строим дома в ипотеку?',
-                text: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
-            },
-            {
-                image: 'images/mockup/news/news-1.png'|asset,
-                date: '20 авг 2021',
-                title: 'Как сделать строительство дешевле?',
-                text: 'Строительство дома можно сделать <b>дешевле — выбрав</b> проект...',
-            },
-            {
-                image: 'images/mockup/news/news-2.png'|asset,
-                date: '19 авг 2021',
-                title: 'Почему Гуд Вилл строит лучшие дома?',
-                text: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
-            },
-            {
-                image: 'images/mockup/news/news-3.png'|asset,
-                date: '18 авг 2021',
-                title: 'Преимущества и недостатки частного дома',
-                text: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
-            },
-            {
-                image: 'images/mockup/news/news-4.png'|asset,
-                date: '17 авг 2021',
-                title: 'Из чего мы строим дома в ипотеку?',
-                text: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
-            },
-        ],
-        currentPage: 1,
-        lastPage: 10,
+        items: news.items ?? [],
+        currentPage: news.currentPage ?? 1,
+        lastPage: news.lastPage ?? 0,
     },
 } %}
 
@@ -82,9 +33,9 @@
                 <li>
                     {% include '@components/news-card/news-card.twig' with {
                         image: item.image ?? '',
-                        date: item.date ?? '',
+                        date: item.created_at ?? '',
                         title: item.title ?? '',
-                        text: item.text ?? '',
+                        text: item.description ?? '',
                     } %}
                 </li>
             {% endfor %}

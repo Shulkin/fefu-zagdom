@@ -10,12 +10,12 @@
 {% macro content(scope) %}
     <article class="NewsCard">
         <img
-            src="{{ scope.image }}"
+            src="{{ scope.image|asset }}"
             alt="{{ scope.title }}"
             class="NewsCard__image"
         >
         <span class="NewsCard__date">
-            {{ scope.date }}
+            {{ scope.date|formatDate }}
         </span>
         <h3 class="NewsCard__title">
             {{ scope.title|raw }}

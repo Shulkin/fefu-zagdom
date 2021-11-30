@@ -19,9 +19,9 @@
                 <li class="NewsList__item">
                     {% include '@components/news-card/news-card.twig' with {
                         image: item.image ?? '',
-                        date: item.date ?? '',
+                        date: item.created_at ?? '',
                         title: item.title ?? '',
-                        text: item.text ?? '',
+                        text: item.description ?? '',
                     } %}
                 </li>
             {% endfor %}
