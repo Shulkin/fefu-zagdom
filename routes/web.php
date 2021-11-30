@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', WebController::class . '@home')->name('home');
 Route::get('/news', WebController::class . '@news')->name('news');
+
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
