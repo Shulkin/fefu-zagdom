@@ -1,13 +1,28 @@
 .ContactsPage {
     &__layout {
+        display: grid;
+        grid-template-areas:
+            "title map"
+            "contacts map";
+        grid-template-columns: 1fr minmax(auto, 544px);
+        grid-gap: 32px 16px;
+        max-width: 944px;
+        margin-x: auto;
     }
 
     &__title {
+        @include page-title-mixin;
+
+        grid-area: title;
     }
 
-    &__content {
+    &__contacts {
+        grid-area: contacts;
+        color: $color-black;
+        font-size: toRem(20px);
     }
 
     &__map {
+        grid-area: map;
     }
 }
