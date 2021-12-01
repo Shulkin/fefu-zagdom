@@ -17,6 +17,8 @@
         </style>
 
         <link href="/build/bundle.css" rel="stylesheet">
+
+        {% block headScripts %}{% endblock %}
     </head>
     <body class="antialiased">
         <div class="Layout">
@@ -37,6 +39,8 @@
             {% include '@components/feedback-modal/feedback-modal.twig' %}
         {% endblock %}
 
-        <script type="text/javascript" src="/build/bundle.js"></script>
+        {% block bodyScripts %}
+            <script type="text/javascript" src="/build/bundle.js"></script>
+        {% endblock %}
     </body>
 </html>

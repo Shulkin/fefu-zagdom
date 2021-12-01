@@ -29,9 +29,23 @@
                     alternativeIcon: true,
                 } %}
             </div>
-            <div class="ContactsPage__map">
-                Тут будет карта
-            </div>
+            <div id="map" class="ContactsPage__map"></div>
         </div>
     </div>
+{% endblock %}
+
+{% block headScripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?apikey=ede6d66b-df0e-4b88-804d-721f2e8169e2&lang=ru_RU"></script>
+{% endblock %}
+
+{% block bodyScripts %}
+    {{ parent() }}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.dispatchEvent(new Event('MapLoaded'));
+        });
+    </script>
 {% endblock %}

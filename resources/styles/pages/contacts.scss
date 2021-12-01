@@ -3,7 +3,8 @@
         display: grid;
         grid-template-areas:
             "title map"
-            "contacts map";
+            "contacts map"
+            ". map";
         grid-template-columns: 1fr minmax(auto, 544px);
         grid-gap: 32px 16px;
         max-width: 944px;
@@ -24,5 +25,7 @@
 
     &__map {
         grid-area: map;
+
+        height: 496px;
     }
 }
