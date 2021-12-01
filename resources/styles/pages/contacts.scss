@@ -9,6 +9,14 @@
         grid-gap: 32px 16px;
         max-width: 944px;
         margin-x: auto;
+
+        @include vw-sm-down {
+            grid-template-areas:
+                "title"
+                "contacts"
+                "map";
+            grid-template-columns: 1fr;
+        }
     }
 
     &__title {
