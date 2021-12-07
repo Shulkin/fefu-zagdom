@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ app.getLocale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href="/build/bundle.css" rel="stylesheet">
+    </head>
+    <body class="antialiased">
+        <div class="Layout">
+            <header class="Layout__header">
+                {% include '@components/header/header.twig' %}
+            </header>
+            
+            <main class="Layout__main">
+                {% block main %}{% endblock %}
+            </main>
+            
+            <footer class="Layout__footer">
+                {% include '@components/footer/footer.twig' %}
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="/build/bundle.js"></script>
+    </body>
+</html>
