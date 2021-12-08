@@ -1,15 +1,18 @@
+
+$color-black: black;
+$color-gray: #666666;
+$color-green--dark:#254741;
+$color-green: #029F59;
+
+@function toRem($size) {
+    @return $size / 16px * 1em;
+}
+
+@import "./uikit.scss";
 @import "../layouts/base.scss";
+@import "../components/header/header.scss";
+@import "../components/site-nav/site-nav.scss";
+@import "./elements.scss";
 
-$primary: blue;
-$secondary: red;
-
-body {
-    font-family: 'Open Sans', sans-serif;
-}
-.hello {
-    color: $primary;
-    font-family: 'Montserrat', sans-serif;
-}
-.lorem {
-    color: $secondary;
-}
+$primary: red;
+$secondary: blue;

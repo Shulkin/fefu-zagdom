@@ -1,0 +1,24 @@
+.PrimaryPhone {
+    display: flex;
+    font-size: toRem(14px);
+    line-height: 1.2;
+    color: $color-green--dark;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-black;
+    }
+
+    &__icon {
+        margin-right: 8px;
+    }
+}
+
+.Button {
+    @extend .uk-button;
+
+    &--primary {
+        @extend .uk-button-primary;
+    }
+}

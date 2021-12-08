@@ -1,0 +1,24 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro content(scope) %}
+    <ul class="SiteNav">
+        {% for item in scope.items %}
+        {% set item = {
+            url: item.url ?? '',
+            name: item.name ?? '',
+        } %}
+
+        <li class="SiteNav__listItem">
+            <a href="{{ item.url }}" class="SiteNav__item">
+                {{ item.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{{ macros.content(scope) }}
