@@ -1,0 +1,49 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro content(scope) %}
+    <div class="Slider swiper" data-swiper>
+        <div class="swiper-wrapper">
+            {% for item in scope.items %}
+                <div class="swiper-slide">
+                    {{ macros.slide(item) }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+{% endmacro %}
+
+{{ macros.content(scope) }}
+
+{% macro slide(data) %}
+
+    {% set data = {
+        desktopImage: data.desktopImage ?? '',
+        mobileImage: data.mobileImage ?? '',
+        title: data.title ?? '',
+        text: data.text ?? '',
+    } %}
+
+    <div class="Slide">
+        <picture class="Slide__picture">
+            <sourse media="(max-width: 639px)" srcset="{{ data.mobileImage }}"></sourse>
+            <sourse media="(min-width: 640px)" srcset="{{ data.desktopImage }}"></sourse>
+            <img src="{{ data.desktopImage }}" alt="{{ data.title }}" class="Slide__image">
+        </picture>
+        <div class="Slide__content">
+            <h2 class="Slide__title">
+                {{ data.title|raw }}
+            </h2>
+            <p class="Slide__text">
+                {{ data.text|raw }}
+            </p>
+        </div>
+    </div>
+{% endmacro %}

@@ -1,6 +1,61 @@
 {% extends '@layouts/base.twig' %}
 
+{# mock data (change the src) #} 
+{% set scope = {
+    slides: [
+        {
+            desktopImage: 'images/mockup/slides/slider_desk.png'|asset,
+            mobileImage: 'images/mockup/slides/slider_phone.png'|asset,
+            title: 'Проектируем <br>и строим загородные дома',
+            text: 'Строим дома «под ключ»: от этапа проектирования и до финишной отделки помещений',
+        },
+        {
+            desktopImage: 'images/mockup/slides/slider_desk.png'|asset,
+            mobileImage: 'images/mockup/slides/slider_phone.png'|asset,
+            title: 'Проектируем <br>и строим загородные дома',
+            text: 'Строим дома «под ключ»: от этапа проектирования и до финишной отделки помещений',
+        },
+        {
+            desktopImage: 'images/mockup/slides/slider_desk.png'|asset,
+            mobileImage: 'images/mockup/slides/slider_phone.png'|asset,
+            title: 'Проектируем <br>и строим загородные дома',
+            text: 'Строим дома «под ключ»: от этапа проектирования и до финишной отделки помещений',
+        },
+    ], 
+    featuredSection: {
+        title: 'Каждый проект <br>для нас - важный',
+        text: 'Мы строительная компания полного цикла.<br><br>Вникаем во все детали, разрабатываем планировку<br>будущего дома, продумываем конструктивные решения<br> и общую архитектурную концепцию',
+        items: [
+            {
+                icon: 'icons/house.svg'|asset,
+                title: '57 домов',
+                text: 'спроектировали и построили “под ключ”',
+            },
+            {
+                icon: 'icons/calendar.svg'|asset,
+                title: '14 лет',
+                text: 'мы на рынке загородного строительства',
+            },
+        ]
+    }
+} %}
+
 {% block main %}
     <div class="Container">
+        {# slider #}
+        <div class="Layout__section Layout__section--slider">
+            {% include '@components/slider/slider.twig' with {
+                items: scope.slides,
+            } %}
+        </div>
+        {# featured section #}
+        <div class="Layout__section Layout__section--featured">
+            {% include '@components/featured-section/featured-section.twig' with {
+                title: scope.featuredSection.title,
+                text: scope.featuredSection.text,
+                items: scope.featuredSection.items,
+            } %}
+        </div>    
+        
     </div>
 {% endblock %}
