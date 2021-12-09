@@ -2,10 +2,11 @@
 
 {% set scope = {
     items: items ?? [],
+    column: column ?? false,
 } %}
 
 {% macro content(scope) %}
-    <ul class="SiteNav">
+    <ul class="SiteNav {{ scope.column ? "SiteNav--column" : "" }}">
         {% for item in scope.items %}
         {% set item = {
             url: item.url ?? '',

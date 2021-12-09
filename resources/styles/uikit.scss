@@ -1,3 +1,4 @@
+
 $base-margin-vertical: 0;
 $base-heading-margin-top: 0;
 $base-list-padding-left: 0;
@@ -16,27 +17,30 @@ $container-max-width: 1264px;
 $container-small-max-width: 780px;
 $container-xsmall-max-width: 720px;
 
-$container-padding-horizontal-m: 88px;
-$container-padding-horizontal-s: 32px;
+$container-padding-horizontal-m: 22px;
+$container-padding-horizontal-s: 16px;
 $container-padding-horizontal: 16px;
 
 $button-primary-background: $color-green;
 $button-primary-color: white;
 $button-primary-hover-background: darken($button-primary-background, 5%);
-$button-primary-color: white;
+$button-primary-hover-color: white;
 $button-primary-active-background: darken($button-primary-background, 10%);
 $button-primary-active-color: white;
+
+$offcanvas-bar-background: hsl(153, 98%, 32%);
+
+$global-inverse-color: white;
+
+$inverse-global-color: $global-inverse-color;
 
 $global-font-family: 'Open Sans', sans-serif;
 $base-heading-font-family: 'Montserrat', sans-serif;
 
+@import "~uikit/src/scss/variables.scss";
+@import "~uikit/src/scss/mixins.scss";
 
-// 1. Your custom variables and variable overwrites.
-$global-link-color: #DA7D02;
-
-// 2. Import default variables and available mixins.
-@import "~uikit/src/scss/variables-theme.scss";
-@import "~uikit/src/scss/mixins-theme.scss";
+/* hooks section */
 
 @mixin hook-base-link {
     transition: color 0.25s ease-in-out;
@@ -46,14 +50,10 @@ $global-link-color: #DA7D02;
     padding-x: 40px;
     border-radius: 10px;
     font-family: $base-heading-font-family;
-    //font-weight: $font-weight-medium;
+    font-weight: $font-weight-medium;
     font-size: toRem(14px);
     line-height: 49px;
     transition: background-color 0.25s ease-in-out;
 }
 
-// 3. Your custom mixin overwrites.
-@mixin hook-card() { color: #000; }
-
-// 4. Import UIkit.
-@import "~uikit/src/scss/uikit-theme.scss";
+@import "~uikit/src/scss/uikit.scss";

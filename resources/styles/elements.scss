@@ -1,5 +1,6 @@
 .PrimaryPhone {
     display: flex;
+    font-family: $base-heading-font-family;
     font-size: toRem(14px);
     line-height: 1.2;
     color: $color-green--dark;
@@ -20,5 +21,9 @@
 
     &--primary {
         @extend .uk-button-primary;
+    }
+
+    &--icon {
+        padding-x: 16px;
     }
 }
