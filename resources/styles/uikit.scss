@@ -79,6 +79,10 @@ $base-heading-font-family: 'Montserrat', sans-serif;
 
 @mixin hook-modal-body {
     padding: 48px 48px 56px;
+
+    @include vw-sm-down {
+        padding: 64px 24px 32px;
+    }
 }
 
 @mixin hook-modal-close-default {
@@ -95,6 +99,12 @@ $base-heading-font-family: 'Montserrat', sans-serif;
             stroke-width: 2px;
         }
     }
+}
+
+@mixin hook-modal-title {
+    @include modal-title-mixin;
+
+    margin-bottom: 24px;
 }
 
 // Import UIkit

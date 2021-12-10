@@ -19,12 +19,12 @@ $font-weight-bold: 700;
 // Media
 @import "./media.scss";
 
+// Mixins
+@import "./mixins.scss";
+
 // Vendor
 @import "./uikit.scss";
 @import "./swiper.scss";
-
-// Mixins
-@import "./mixins.scss";
 
 // Layouts
 @import "../layouts/base.scss";

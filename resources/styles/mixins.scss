@@ -24,6 +24,16 @@
     }
 }
 
+@mixin modal-title-mixin {
+    @include title-mixin;
+
+    font-size: toRem(32px);
+
+    @include vw-sm-down {
+        font-size: toRem(30px);
+    }
+}
+
 @mixin overflow-slider-mixin {
     display: flex;
     grid-gap: 0;
