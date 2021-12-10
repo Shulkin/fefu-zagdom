@@ -1,0 +1,14 @@
+{% import _self as macros %}
+
+{% macro content() %}
+    <div id="request" data-uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Оставить заявку</h2>
+            <button type="button" class="uk-modal-close-default" data-uk-close></button>
+
+            {% include '@components/request-form/request-form.twig' %}
+        </div>
+    </div>
+{% endmacro %}
+
+{{ macros.content }}
