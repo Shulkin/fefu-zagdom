@@ -43,6 +43,10 @@ $global-inverse-color: white;
 
 $inverse-global-color: $global-inverse-color;
 
+$form-height: 58px;
+$form-background: white;
+$form-focus-background: white;
+
 $global-font-family: 'Open Sans', sans-serif;
 $base-heading-font-family: 'Montserrat', sans-serif;
 
@@ -105,6 +109,17 @@ $base-heading-font-family: 'Montserrat', sans-serif;
     @include modal-title-mixin;
 
     margin-bottom: 24px;
+}
+
+@mixin hook-form {
+    padding: 16px;
+    border-radius: 5px;
+}
+
+@mixin hook-form-multi-line {
+    resize: none;
+    height: 100px;
+    padding-y: 16px;
 }
 
 // Import UIkit
