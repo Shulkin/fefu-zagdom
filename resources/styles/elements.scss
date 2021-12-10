@@ -33,4 +33,43 @@
 }
 
 .Form {
+    &__fieldset {
+        @extend .uk-fieldset;
+    }    
+
+    &__field {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__input {
+        @extend .uk-input;
+    }
+
+    &__textarea {
+        @extend .uk-textarea;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 32px;
+    }
+
+    &__agreement {
+        margin-top: 16px;
+        font-size: toRem(14px);
+        color: $color-raven;
+        text-align: center;
+
+        @include vw-sm-up {
+            max-width: 310px;
+        }
+
+        a {
+            color: $color-green;
+        }
+    }
 }

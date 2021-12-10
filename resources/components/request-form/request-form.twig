@@ -2,7 +2,29 @@
 
 {% macro content() %}
     <form class="Form">
-        Тут будет форма
+        <fieldset class="Form__fieldset">
+            <div class="Form__field">
+                <input type="text" name="name" placeholder="Имя" class="Form__input">
+            </div>
+
+            <div class="Form__field">
+                <input type="text" name="phone" placeholder="Телефон" class="Form__input">
+            </div>
+
+            <div class="Form__field">
+                <textarea name="message" placeholder="Сообщение" class="Form__textarea"></textarea>
+            </div>
+        </fieldset>
+
+        <div class="Form__footer">
+            <button type="submit" class="Button Button--primary">
+                Оставить заявку
+            </button>
+
+            <p class="Form__agreement">
+                Нажимая на кнопку «Отправить», вы принимаете <a href="/">пользовательское соглашение</a> и <a href="/">политику конфиденциальности</a>
+            </p>
+        </div>
     </form>
 {% endmacro %}
 
