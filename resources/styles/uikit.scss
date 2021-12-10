@@ -71,5 +71,31 @@ $base-heading-font-family: 'Montserrat', sans-serif;
     border: 1px solid;
 }
 
+@mixin hook-modal-dialog {
+    width: 448px;
+    border-radius: 10px;
+    background-color: $color-snow-drift;
+}
+
+@mixin hook-modal-body {
+    padding: 48px 48px 56px;
+}
+
+@mixin hook-modal-close-default {
+    top: 24px;
+    right: 24px;
+    padding: 9px;
+    border-radius: 6px;
+    background-color: rgba($color-green, 0.2);
+
+    svg {
+        color: $color-green;
+
+        line {
+            stroke-width: 2px;
+        }
+    }
+}
+
 // Import UIkit
 @import "~uikit/src/scss/uikit.scss";
