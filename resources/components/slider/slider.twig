@@ -1,0 +1,21 @@
+{% macro content(scope) %}
+  {% import _self as macros %}
+
+    <div class="slider swiper" data-swiper>
+
+      <div class="swiper-wrapper">
+
+        {% for item in scope.items %}
+          <div class="swiper-slide">
+            {{ macros.slide(item) }}
+          </div>
+        {% endfor %}
+      </div>
+    
+      <div class="swiper-pagination"></div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  {% endmacro %}
+{{ macros.content(scope) }}
