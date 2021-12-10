@@ -1,7 +1,104 @@
 {% extends '@layouts/base.twig' %}
 
+{% set scope = {
+  slides: [
+    {
+      desctopImage: 'images/slide-desctop.png',
+      mobileImage: 'images/slide-mobile.png',
+      title: 'Проектируем<br>и строим дома',
+      text: 'Строим дома "под ключ": от этапа проектирования и до финишной отделки помещений',
+    },
+    {
+      desctopImage: '',
+      mobileImage: '',
+      title: '',
+      text: '',
+    },
+    {
+      desctopImage: '',
+      mobileImage: '',
+      title: '',
+      text: '',
+    },
+  ],
+} %}
+
 {% block main %}
-  <h1 class="hello">Hello, World!</h1>
-  <span class="lorem">Lorem ipsum</span>
-  <br><a href="https://feip.co">FEIP</a>
+  <div class="container">
+    <div class="aboutUs">
+        <h1 class="aboutUs_title">Каждый проект<br>для нас &mdash; важный</h1>
+      <div class="aboutUs_text">
+        <p>Мы строительная компания полного цикла</p>
+        <p>Вникаем во все детали, разрабатываем планировку<br>будущего дома, продумываем конструктивные решения<br>и общую архитектурную концепцию</p>
+      </div>
+      <div class="aboutUs_house">
+        <img class="aboutUs_icon" src="{{ asset('images/house.png') }}" alt="">
+        <h3>57 домов</h3>
+        <p>спроектировали и<br>построили "под ключ"</p>
+      </div>
+      <div class="aboutUs_years">
+        <img class="aboutUs_icon" src="{{ asset('images/calendar.png') }}" alt="">
+        <h3>14 лет</h3>
+        <p>мы на рынке загородного<br>строительства</p>
+      </div>
+    </div>
+    <div class="completedProjects">
+      <div class="completedProjects_title">
+        <h1>Реализованные проекты</h1></div>
+      <div class="completedProjects_housesCards houses">
+        <div class="houses_scandinaviaCard">
+          <div class="houses_text">
+            <h3>Дом в скандинавском<br>стиле</h3>
+            <p>Одноэтажный дом из газобетона<br>габаритными размерами<br>10.73 х 10.73 м. и жилой<br>площадью 101 кв. м. с<br>вальфрамовой кровлей</p>
+            <p>Построен по индивидуальному<br>проекту.</p>
+          </div>
+          <img class="houses_img" src="{{ asset('images/leftProject.png') }}" alt="">
+        </div>
+        <div class="houses_gazobetonCard">
+          <div class="houses_text">
+            <h3>Дом из газобетона</h3>
+            <p>Одноэтажный дом габаритными<br>размерами 15.2 х 9.7 м.<br>Приведенная площадь - 127.7<br>м.кв.</p>
+            <p>Три спальные комнаты, два<br>сан.узла, большая кухня-<br>гостиная с выходом на террасу.</p>
+          </div>
+          <img class="houses_img" src="{{ asset('images/rightProject.png') }}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="news">
+      <div class="news_titleAndButton">
+        <div class="news_title">
+          <h1>Новости</h1>
+        </div>
+        <div class="news_button">
+          <button class="news_newsBtn">Все новости</button>
+        </div>
+      </div>
+      <div class="newsCards">
+        <div class="newsCards_card newsCards_firstCard">
+          <img class="newsCards_image" src="{{ asset('images/firstPicture.png') }}" alt="">
+          <p>20 авг 2021</p>
+          <h3>Как сделать строительство<br>дешевле?</h3>
+          <p>Строительство дома можно сделать<br>дешевле &mdash; выбрав проект&hellip;</p>
+        </div>
+        <div class="newsCards_card newsCards_secondCard">
+          <img class="newsCards_image" src="{{ asset('images/secondPicture.png') }}" alt="">
+          <p>20 авг 2021</p>
+          <h3>Из чего мы строим дома в<br>ипотеку?</h3>
+          <p>Самый популярный вопрос наших<br>клиентов касается материалов,<br>которые&hellip;</p>
+        </div>
+        <div class="newsCards_card newsCards_thirdCard">
+          <img class="newsCards_image" src="{{ asset('images/thirdPicture.png') }}" alt="">
+          <p>20 авг 2021</p>
+          <h3>Почему Гуд Вилл строит<br>лучшие дома?</h3>
+          <p>Хотим порадовать тех, кто планирет<br>пеезд из квартиры в дом&hellip;</p>
+        </div>
+        <div class="newsCards_card newsCards_fourthCard">
+          <img class="newsCards_image" src="{{ asset('images/fourthPicture.png') }}" alt="">
+          <p>20 авг 2021</p>
+          <h3>Преимущества и<br>недостатки частного дома</h3>
+          <p>Первое и главное: строим дом<br>индивидуально для вас, по вашим&hellip;</p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

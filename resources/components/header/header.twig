@@ -5,24 +5,41 @@
     <div class="header_container">
         <div class="header_content">
             <div class="header_logo"><img src="{{ asset('images/logo.png') }}" alt=""></div>
-            <nav class="header_navigation nav">
-                <ul class="nav_container">
-                    <li class="nav_item">Реализованные проекты</li>
-                    <li class="nav_item">Новости</li>
-                    <li class="nav_item">Контакты</li>
-            </ul>
-            </nav>
-            <nav class="contacts">
-                <div class="contacts_container">
-                    <div class="contacts_item contacts_item-telephone">
-                        <div class="contacts_telephone-ing"><img src="{{ asset('images/telephone.png') }}" alt=""></div>
-                        <div class="contacts_telephone-text">+7 (900) 900 90 90</div>
-                    </div>
-                    <div class="contacts_item contacts_item-submit">Оставить завку</div>
+            <div class="header_burger menu-toggle">
+                <span></span>
+            </div>
+            <div class="header_menu menu">
+                <div class="menu_container">
+                    <nav class="menu_navigation nav">
+                        <ul class="nav_container">
+                            <li class="nav_item"><a class="nav_link" href="/">Реализованные проекты</a></li>
+                            <li class="nav_item"><a class="nav_link" href="/">Новости</a></li>
+                            <li class="nav_item"><a class="nav_link" href="/">Контакты</a></li>
+                    </ul>
+                    </nav>
+                    <nav class="menu_contacts headcontacts">
+                        <div class="headcontacts_container">
+                            <div class="headcontacts_item headcontacts_item-telephone">
+                                <div class="headcontacts_telephone-img1"><img src="{{ asset('images/telephone.png') }}" alt=""></div>
+                                <div class="headcontacts_telephone-img2"><img src="{{ asset('images/Group.png') }}" alt=""></div>
+                                <div class="headcontacts_telephone-text">+7 (900) 900 90 90</div>
+                            </div>
+                            <div class="headcontacts_item headcontacts_item-mail">
+                                <div class="headcontacts_mail-img"><img src="{{ asset('images/email.png') }}" alt=""></div>
+                                <div class="headcontacts_mail-text">info@gmail.com</div>
+                            </div>
+                            <div class="headcontacts_item headcontacts_item-adress">
+                                <div class="headcontacts_adress-img"><img src="{{ asset('images/Vector.png') }}" alt=""></div>
+                                <div class="headcontacts_adress-text">г. Владивосток<br>ул. Выселковая 49, стр 3</div>
+                            </div>
+                            <div class="headcontacts_item headcontacts_item-submit">Оставить завку</div>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
+            </div>
         </div>
     </div>
+    <script src="{{ asset('js/header.js') }}"></script>
 {% endmacro %}
 
 {{ macros.content }}

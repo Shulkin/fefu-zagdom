@@ -17,10 +17,17 @@
   </header>
   
   <main class="layout_main">
-    {% block main %}{% endblock %}
+    {% block main %}
+      <div class="container">
+        <div class="layout__section layout__section--slider">
+          {% include '@components/slider/slider.twig' with {
+            items: scope.slides,
+          } %}
+        </div>
+      </div>
+    {% endblock %}
   </main>
 
-  <footer class="layout_footer"></footer>
     {% include '@components/footer/footer.twig' %}
   </div>
 
