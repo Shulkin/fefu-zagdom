@@ -28,6 +28,10 @@ $button-primary-hover-color: white;
 $button-primary-active-background: darken($button-primary-background, 10%);
 $button-primary-active-color: white;
 
+/* more news button */
+$button-secondary-background: white;
+$button-secondary-color: $color-green;
+
 $offcanvas-bar-background: hsl(153, 98%, 32%);
 
 $global-inverse-color: white;
@@ -54,6 +58,10 @@ $base-heading-font-family: 'Montserrat', sans-serif;
     font-size: toRem(14px);
     line-height: 49px;
     transition: background-color 0.25s ease-in-out;
+}
+
+@mixin hook-button-secondary {
+    border: 1px solid;
 }
 
 @import "~uikit/src/scss/uikit.scss";

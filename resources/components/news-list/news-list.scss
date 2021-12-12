@@ -1,0 +1,105 @@
+.NewsList {
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        @include vw-sm-down {
+            margin-bottom: 24px;
+        }
+
+        @include vw-xs-down {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__title {
+        font-family: 'Monserrat', sans-serif;
+        font-weight: bold;
+        font-size: toRem(38px);
+        line-height: 120%;
+
+        margin-right: 8px;
+
+        @include vw-xs-down {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 24px 16px;
+        list-style: none;
+
+        @include vw-lg-down {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include vw-md-down {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include vw-sm-down {
+            display: flex;
+            grid-gap: 0;
+            margin: 0 #{-$container-padding-horizontal};
+            padding-left: $container-padding-horizontal;
+            overflow-x: auto;
+
+            &::after {
+                content: "";
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: $container-padding-horizontal;
+            }
+        }
+    }
+
+    &__item {
+        @include vw-sm-down {
+            &:not(:last-child) {
+                margin-right: 16px;
+            }
+        }
+    }
+}
+
+.NewsCard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    line-height: 1.2;
+
+    @include vw-sm-down {
+        width: 344px;
+    }
+
+    @include vw-xs-down {
+        width: 288px;
+    }
+
+    &__image {
+        height: 200px;
+        margin-bottom: 16px;
+        border-radius: 20px 20px 0 0;
+        object-position: center;
+        object-fit: cover;
+    }
+
+    &__date {
+        margin-bottom: 16px;
+        font-family: $base-heading-font-family;
+        font-size: toRem(14px);
+        color: $color-black
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: toRem(20px);
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        color: $color-black;
+    }
+}

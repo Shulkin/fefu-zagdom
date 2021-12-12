@@ -1,0 +1,98 @@
+@mixin section-title-mix {
+    font-family: 'Monserrat', sans-serif;
+    font-weight: bold;
+    font-size: toRem(38px);
+    line-height: 120%;
+}
+
+.ProjectsSection {
+    &__title {
+        margin-bottom: 32px;
+
+        @include section-title-mix;
+
+        @include vw-md-down {
+            font-size: 28px;
+        }
+
+        @include vw-sm-down {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include vw-lg-down {
+            grid-gap: 0;
+            margin: 0-#{-$container-padding-horizontal};
+            display: flex;
+            padding-left: $container-padding-horizontal;
+            overflow-x: auto;
+        }
+
+        &::after {
+            content: "";
+            flex-shrink: 0;
+            flex-grow: 0;
+            width: $container-padding-horizontal;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        min-width: 150px;
+
+        @include vw-lg-down {
+            flex-direction: column;
+            flex-shrink: 0;
+            max-width: 280px;
+            width: 80%;
+        }
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+    }
+
+    &__textBlock {
+        padding: 30px 16px 30px 30px;
+
+        @include vw-sm-down {
+            padding: 20px 24px;
+        }
+    }
+
+    &__itemTitle {
+        margin-bottom: 12px;
+
+        font-weight: 500;
+        font-size: toRem(20px);
+        line-height: 120%;
+    }
+
+    &__itemDescription {
+        font-family: 'Open Sans', sans-serif;
+        font-size: toRem(16px);
+        line-height: 135%;
+    }
+
+    &__imageBlock {
+        object-position: center;
+        object-fit: cover;
+
+        @include vw-lg-down {
+            order: -1;
+        }
+
+        @include vw-sm-down {
+            height: 150px;
+        }
+    }
+}

@@ -27,7 +27,7 @@
         text: 'Мы строительная компания полного цикла.<br><br>Вникаем во все детали, разрабатываем планировку<br>будущего дома, продумываем конструктивные решения<br> и общую архитектурную концепцию',
         items: [
             {
-                icon: 'icons/house.svg'|asset,
+                icon: 'icons/home.svg'|asset,
                 title: '57 домов',
                 text: 'спроектировали и построили “под ключ”',
             },
@@ -36,9 +36,50 @@
                 title: '14 лет',
                 text: 'мы на рынке загородного строительства',
             },
+        ],
+    }, 
+    projectsSection: [
+        {
+            image: 'images/mockup/projects/project-1.png'|asset,
+            title: 'Дом в скандинавском стиле',
+            description: 'Одноэтажный дом из газобетона габаритными размерами 10.73 х 10.73 м. и жилой
+            площадью 101 кв. м. с вальмовой кровлей\n\nПостроен по индивидуальному проекту.'
+        },
+        {
+            image: 'images/mockup/projects/project-2.png'|asset,
+            title: 'Дом из газобетона',
+            description: 'Одноэтажный дом габаритными размерами 15.2 х 9.7м. Приведенная площадь – 127.7 м.кв.\n\n
+            Три спальные комнаты, два сан.узла, большая кухня-гостиная с выходом на террасу.',
+        }
+    ],
+    newsSection: [
+        {
+            image: 'images/mockup/news/news-1.png'|asset,
+            date: '20 авг 2021',
+            title: 'Как сделать строительство дешевле?',
+            text: 'Строительство дома можно сделать дешевле — выбрав проект...',
+        },
+        {
+            image: 'images/mockup/news/news-2.png'|asset,
+            date: '20 авг 2021',
+            title: 'Почему Гуд Вилл строит лучшие дома?',
+            text: 'Хотим обрадовать тех, кто планирует переезд из квартиры в дом...',
+        },
+        {
+            image: 'images/mockup/news/news-3.png'|asset,
+            date: '20 авг 2021',
+            title: 'Преимущества и недостатки частного дома',
+            text: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
+        },
+        {
+            image: 'images/mockup/news/news-4.png'|asset,
+            date: '20 авг 2021',
+            title: 'Из чего мы строим дома в ипотеку?',
+            text: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
+        },
         ]
-    }
-} %}
+}
+%}
 
 {% block main %}
     <div class="Container">
@@ -55,7 +96,20 @@
                 text: scope.featuredSection.text,
                 items: scope.featuredSection.items,
             } %}
+        </div>      
+    </div>
+    <div class="Layout__section Layout__section--projects">
+        <div class="Container">
+            {% include '@components/projects-section/projects-section.twig' with {
+                items: scope.projectsSection
+            } %}
         </div>    
-        
+    </div>
+    <div class="Container">
+        <div class="Layout__section Layout__section--news">
+            {% include '@components/news-list/news-list.twig' with {
+                items: scope.newsSection,
+            } %}
+        </div>
     </div>
 {% endblock %}

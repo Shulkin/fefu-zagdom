@@ -1,0 +1,34 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro content(scope) %}
+    <section class="ProjectsSection">
+        <h2 class="ProjectsSection__title">
+            Реализованные проекты
+        </h2>
+        <div class="ProjectsSection__container">
+            {% for project in scope.items %}
+                <div class="ProjectsSection__item">
+                    <div class="ProjectsSection__textBlock">
+                        <h4 class="ProjectsSection__itemTitle">
+                            {{ project.title }}
+                        </h4>
+                        <p class="ProjectsSection__itemDescription">
+                            {{ project.description|nl2br }}
+                        </p>
+                    </div>
+                    <img
+                        src="{{ project.image }}"
+                        alt="{{ project.title }}"
+                        class="ProjectsSection__imageBlock"
+                    >
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endmacro %}
+
+{{ macros.content(scope) }}

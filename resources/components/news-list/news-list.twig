@@ -1,0 +1,57 @@
+{% import _self as macros %}
+
+{% set scope = {
+    items: items ?? [],
+} %}
+
+{% macro news(data) %}
+    {% set data = {
+        image: data.image ?? '',
+        date: data.date ?? '',
+        title: data.title ?? '',
+        text: data.text ?? '',
+    } %}
+
+    <article class="NewsCard">
+        <img
+            src="{{ data.image }}"
+            alt="{{ data.title }}"
+            class="NewsCard__image"
+        >
+        <span class="NewsCard__date">
+            {{ data.date }}
+        </span>
+        <h3 class="NewsCard__title">
+            {{ data.title|raw }}
+        </h3>
+        <p class="NewsCard__text">
+            {% set limit = 40 %}
+            {% set text = data.text|length > limit ? data.text|striptags|slice(0, limit) ~ '...' : data.text %}
+            {{ text|raw }}
+        </p>
+    </article>
+{% endmacro %}
+
+{% macro content(scope) %}
+    {% import _self as macros %}
+
+    <section class="NewsList">
+        <header class="NewsList__header">
+            <h2 class="NewsList__title">
+                Новости
+            </h2>
+            <a href="/" class="Button Button--secondary">
+                Все новости
+            </a>
+        </header>
+        <ul class="NewsList__list">
+            {% for item in scope.items %}
+                <li class="NewsList__item">
+                    {{ macros.news(item) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endmacro %}
+
+{{ macros.content(scope) }}

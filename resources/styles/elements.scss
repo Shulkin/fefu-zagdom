@@ -26,4 +26,8 @@
     &--icon {
         padding-x: 16px;
     }
+
+    &--secondary {
+        @extend .uk-button-secondary;
+    }
 }
