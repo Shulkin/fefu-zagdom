@@ -1,0 +1,13 @@
+@import "../layouts/base.scss";
+
+$primary: pink;
+$second: red;
+
+.hello {
+    color: $primary;
+}
+
+.lorem {
+    color: $second;
+    font-family: 'Montserrat', sans-serif;
+}
