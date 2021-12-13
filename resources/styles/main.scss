@@ -1,7 +1,9 @@
-body {
+$lovelyColor: blue;
+
+.Layout__main {
     display: flex;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Montserrat', sans-serif;
     font-size: 300px;
-    color:blue;
+    color: $lovelyColor;
 }

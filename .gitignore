@@ -17,3 +17,5 @@ yarn-error.log
 /public/css
 /public/build
 /public/mix-manifest.json
+public/build/bundle.css
+public/build/bundle.js
