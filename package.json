@@ -19,5 +19,10 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.45.0",
         "sass-loader": "^12.4.0"
+    },
+    "dependencies": {
+        "postcss-axis": "^0.1.2",
+        "postcss-scss": "^4.0.2",
+        "uikit": "^3.9.4"
     }
 }

@@ -1,7 +1,11 @@
-@import "../layouts/base.scss";
+
 
 $primary: pink;
 $second: red;
+$color-black: black;
+$color-gray: #666666;
+$color-green--dark:#254741;
+$color-green: #029F59;
 
 .hello {
     color: $primary;
@@ -11,3 +15,15 @@ $second: red;
     color: $second;
     font-family: 'Montserrat', sans-serif;
 }
+
+@function toRem($size) {
+    @return $size / 16px * 1rem;
+}
+
+
+@import "./uikit.scss";
+@import "../layouts/base.scss";
+@import "../components/header/header.scss";
+@import "../components/footer/footer.scss";
+@import "../components/site-nav/site-nav.scss";
+@import "./elements.scss";

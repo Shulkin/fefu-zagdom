@@ -1,2 +1,2 @@
 require('./bootstrap');
-console.log("Hello, World!")
+import 'uikit';
