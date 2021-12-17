@@ -4,6 +4,7 @@ const { resolve } = require('path');
 mix
     .setPublicPath('public')
     .js('resources/scripts/main.js', 'build/bundle.js')
+    .vue()
     .sass('resources/styles/main.scss', 'build/bundle.css', {}, [
         require('postcss-axis')
     ])

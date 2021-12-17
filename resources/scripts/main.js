@@ -1,5 +1,25 @@
 import './uikit';
 import './swiper';
+import Vue from 'vue';
+import { mask } from 'vue-the-mask';
+
+document.addEventListener('DOMContentLoaded', () => {
+    new Vue({
+        el: '[data-vue-request-form]',
+        directives: { mask },
+        data: () => ({
+            phone: '',
+        }),
+        methods: {
+            onInputPhone(event) {
+                if (/^[8]/.test(event.currentTarget.value)) {
+                    event.currentTarget.value = event.currentTarget.value.replace(/^[8]/g, '+7');
+                }
+                this.phone = event.currentTarget.value;
+            },    
+        },
+    });
+});
 
 document.addEventListener('MapLoaded', () => {
     if (window.ymaps !== undefined) {

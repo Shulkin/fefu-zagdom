@@ -1,18 +1,27 @@
 {% import _self as macros %}
 
 {% macro content() %}
-    <form class="Form">
+    <form class="Form" data-vue-request-form>
         <fieldset class="Form__fieldset">
             <div class="Form__field">
-                <input type="text" name="name" placeholder="Имя" class="Form__input">
+                <input type="text" name="name" aria-label="Имя" placeholder="Имя" class="Form__input">
             </div>
 
             <div class="Form__field">
-                <input type="text" name="phone" placeholder="Телефон" class="Form__input">
+                <input
+                    type="tel"
+                    name="phone"
+                    aria-label="Телефон"
+                    placeholder="Телефон"
+                    class="Form__input"
+                    v-mask="'+7 ### ###-##-##'"
+                    :value="phone"
+                    @input="onInputPhone"
+                >
             </div>
 
             <div class="Form__field">
-                <textarea name="message" placeholder="Сообщение" class="Form__textarea"></textarea>
+                <textarea name="message" aria-label="Сообщение" placeholder="Сообщение" class="Form__textarea"></textarea>
             </div>
         </fieldset>
 
