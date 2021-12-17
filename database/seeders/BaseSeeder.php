@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class BaseSeeder extends Seeder
+abstract class BaseSeeder extends Seeder
 {
     /** @var \Faker\Generator */
     public $faker;

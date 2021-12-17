@@ -1,0 +1,31 @@
+{% extends '@layouts/base.twig' %}
+
+{% block main %}
+    <div class="Container">
+        <div class="Layout__section">
+            <form action="{{ route('form-native') }}" method="get" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Native form</legend>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" name="name" placeholder="Имя">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="phone" name="phone" placeholder="Телефон">
+                    </div>
+                    <div class="uk-margin">
+                        <textarea class="uk-textarea" rows="5" name="message" placeholder="Сообщение"></textarea>
+                    </div>
+                    <div class="uk-margin">
+                        <div uk-form-custom>
+                            <input type="file" name="files">
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">Выбрать файл</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="uk-button">Отправить</button>
+                </fieldset>
+            </form>
+        </div>
+        {{ dump(scope) }}
+    </div>
+{% endblock %}

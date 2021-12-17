@@ -28,10 +28,15 @@ class TwigBridge extends AbstractExtension
         return str_replace(array_keys($this->monthMap), array_values($this->monthMap), $formattedEnDate);
     }
 
+    public function resolveMixPath(string $resource): string {
+        return $resource;
+    }
+
     public function getFilters(): array
     {
         return [
-            new TwigFilter('formatDate', [$this, 'formatDate'])
+            new TwigFilter('formatDate', [$this, 'formatDate']),
+            new TwigFilter('mix', [$this, 'resolveMixPath']),
         ];
     }
 }

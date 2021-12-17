@@ -10,6 +10,7 @@ mix
     .browserSync({
         proxy: 'localhost',
         files: ['resources/**/*'],
-    });
+    })
+    .vue();
 
 mix.alias({'uikit-util': resolve(__dirname, 'node_modules/uikit/src/js/util')});

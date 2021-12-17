@@ -1,0 +1,25 @@
+{% extends '@layouts/base.twig' %}
+
+{% block main %}
+    <div class="Container">
+        <div class="Layout__section">
+            <form data-ajax-form @submit.prevent="submitHandler">
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Ajax form</legend>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" v-model="formData.name" placeholder="Имя">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="phone" v-model="formData.phone" placeholder="Телефон">
+                    </div>
+                    <div class="uk-margin">
+                        <textarea class="uk-textarea" rows="5" v-model="formData.message" placeholder="Сообщение"></textarea>
+                    </div>
+                    <button type="submit" class="uk-button">Отправить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script>window.csrfToken = '{{ csrf_token() }}';</script>
+{% endblock %}
