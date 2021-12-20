@@ -1,0 +1,99 @@
+.Footer {
+    background-color: $color-green--dark;
+    padding-y: 32px;
+
+    @include vw-xs-down {
+        padding-y: 40px;
+    }
+
+    &__layout {
+        display: grid;
+        grid-template-areas:
+            "logo nav contacts button"
+            ". nav contacts ."
+            "copyright links links links";
+        grid-template-columns: repeat(3, 1fr) 1.5fr;
+        grid-gap: 32px 120px;
+
+        @include vw-md-down {
+            grid-template-areas:
+                "logo nav contacts"
+                "button nav contacts"
+                "copyright links links";
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include vw-sm-down {
+            grid-template-areas:
+                "logo"
+                "nav"
+                "contacts"
+                "button"
+                "copyright"
+                "links";
+            grid-template-columns: 1fr;
+            grid-row-gap: 40px;
+        }
+    }
+
+    &__logo {
+        grid-area: logo;
+        max-width: 160px;
+    }
+
+    &__nav {
+        grid-area: nav;
+    }
+
+    &__contacts {
+        grid-area: contacts;
+        font-size: toRem(14px);
+        color: white;
+    }
+
+    &__feedbackButton {
+        grid-area: button;
+
+        @include vw-sm-up {
+            margin-left: auto;
+        }
+    }
+
+    &__copyright {
+        grid-area: copyright;
+    }
+
+    &__links {
+        grid-area: links;
+    }
+
+    &__link {
+        font-size: toRem(14px);
+        line-height: 1.2;
+        color: rgba(white, 0.6);
+    }
+}
+
+.FooterLinks {
+    list-style: none;
+    display: flex;
+
+    @include  vw-sm-down {
+        flex-direction: column;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 100px;
+
+            @include vw-xl-down {
+                margin-right: 50px;
+            }
+
+            @include vw-sm-down {
+                margin-right: unset;
+                margin-bottom: 16px;
+            }
+        }
+    }
+}

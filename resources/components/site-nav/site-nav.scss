@@ -13,6 +13,10 @@
         line-height: 1.2;
         color: $color-gray;
 
+        &--white {
+            color: white;
+        }
+
         &:hover,
         &:focus,
         &:active {

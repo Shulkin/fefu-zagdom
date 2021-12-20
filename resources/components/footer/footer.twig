@@ -1,7 +1,112 @@
 {% import _self as macros %}
 
-{% macro content() %}
-    Footer
+{% set completionYear = '2021' %}
+{% set now = 'now'|date('Y') %}
+
+{% set year = now > completionYear ? completionYear ~ '-' ~ now : now %}
+
+{% macro logo() %}
+    <img
+        src="{{ 'images/logo-white.png'|asset }}"
+        alt="Загородный дом"
+    >
 {% endmacro %}
 
-{{macros.content}}
+{% macro button() %}
+    <button type="button" class="Button Button--primary" data-uk-toggle="#feedback">
+        Оставить заявку
+    </button>
+{% endmacro %}
+
+{% macro copyright(value) %}
+    <span class="Footer__link">
+        {{ value|raw }}
+    </span>
+{% endmacro %}
+
+{% macro links(items) %}
+    <ul class="FooterLinks">
+        {% for item in items %}
+            {% set item = {
+                url: item.url ?? '',
+                name: item.name ?? '',
+            } %}
+
+            <li class="FooterLinks__item">
+                <a href="{{ item.url }}" class="Footer__link">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro content(scope) %}
+    {% import _self as macros %}
+
+    <div class="Footer">
+        <div class="Container">
+            <div class="Footer__layout">
+                <div class="Footer__logo">
+                    {{ macros.logo }}
+                </div>
+
+                <nav class="Footer__nav">
+                    {% include '@components/site-nav/site-nav.twig' with {
+                        items: scope.menu,
+                        column: true,
+                        white: true,
+                    } %}
+                </nav>
+
+                <div class="Footer__contacts">
+                    {% include '@components/contacts/contacts.twig' with {
+                        alternativeIcon: true,
+                    } %}
+                </div>
+
+                <div class="Footer__feedbackButton">
+                    {{ macros.button }}
+                </div>
+
+                <div class="Footer__copyright">
+                    {{ macros.copyright(scope.copyright) }}
+                </div>
+
+                <div class="Footer__links">
+                    {{ macros.links(scope.links) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% set scope = {
+    menu: [
+        {
+            url: '/',
+            name: 'Реализованные проекты',
+        },
+        {
+            url: '/',
+            name: 'Новости',
+        },
+        {
+            url: '/',
+            name: 'Контакты',
+        },
+    ],
+    copyright: '© Загдом, ' ~ year,
+    links: [
+        {
+            url: '/',
+            name: 'Политика конфиденциальности',
+        },
+        {
+            url: '/',
+            name: 'Пользовательское соглашение',
+        },
+    ]
+} %}
+
+{{ macros.content(scope) }}

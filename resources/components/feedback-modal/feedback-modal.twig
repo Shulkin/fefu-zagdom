@@ -1,0 +1,15 @@
+{% import _self as macros %}
+
+{% macro content() %}
+    <div id="feedback" data-uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Оставить заявку</h2>
+            <button type="button" class="uk-modal-close-default" data-uk-close></button>
+            <p class="uk-margin-top">
+                Это просто текст. А скоро здесь будут великие вещи.
+            </p>
+        </div>
+    </div>
+{% endmacro %}
+
+{{ macros.content }}
