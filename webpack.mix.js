@@ -10,7 +10,11 @@ mix
     ])
     .browserSync({
         proxy: 'localhost',
-        files: ['resources/**/*'],
+        files: [
+            'public/**/*',
+            'resources/**/*.twig',
+            'resources/**/*.php',
+        ],
     });
 
 mix.alias({'uikit-util': resolve(__dirname, 'node_modules/uikit/src/js/util')});
