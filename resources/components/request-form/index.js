@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import get from 'lodash-es/get';
 import { mask } from 'vue-the-mask';
+import UIkit from '../../scripts/uikit';
 
 const formDataSchema = () => ({
     name: '',
@@ -88,6 +89,9 @@ export default (el, name) =>
                     const result = await response.json();
 
                     alert('Ваша заявка успешно отправлена');
+
+                    this.close();
+                    setTimeout(this.clearForm, 1000);
                 } catch (error) {
                     console.warn(error);
                 } finally {
@@ -118,6 +122,14 @@ export default (el, name) =>
 
             clearInvalidFields() {
                 this.invalidFields = {};
+            },
+
+            clearForm() {
+                this.data = formDataSchema();
+            },
+
+            close() {
+                UIkit.modal('#request').hide();
             },
 
             onInputPhone(event) {
