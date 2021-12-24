@@ -27,10 +27,16 @@
                     aria-label="Телефон"
                     placeholder="Телефон"
                     class="Form__input"
+                    :class="{ 'Form__input--invalid': isInvalidField('phone') }"
                     v-mask="'+7 ### ###-##-##'"
                     :value="data.phone"
                     @input="onInputPhone"
                 >
+                <span
+                    v-if="isInvalidField('phone')"
+                    class="Form__hint"
+                    v-text="getErrorMessage('phone')"
+                ></span>
             </div>
 
             <div class="Form__field">
@@ -39,8 +45,14 @@
                     aria-label="Сообщение"
                     placeholder="Сообщение"
                     class="Form__textarea"
+                    :class="{ 'Form__textarea--invalid': isInvalidField('message') }"
                     v-model="data.message"
                 ></textarea>
+                <span
+                    v-if="isInvalidField('message')"
+                    class="Form__hint"
+                    v-text="getErrorMessage('message')"
+                ></span>
             </div>
         </fieldset>
 

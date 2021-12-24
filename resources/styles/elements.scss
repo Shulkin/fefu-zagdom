@@ -55,6 +55,10 @@
 
     &__textarea {
         @extend .uk-textarea;
+
+        &--invalid {
+            border-color: $color-danger;
+        }
     }
 
     &__hint {

@@ -14,9 +14,31 @@ const createPayload = (data) => ({
     message: data.message,
 });
 
+const phoneRule = /(\+7) (\d{3}) (\d{3})-(\d{2})-(\d{2})/i;
+
 const validation = {
     name: {
         target: 'data.name',
+        handler: (value) => {
+            return value !== '';
+        },
+        message: () => {
+            return 'Заполните поле';
+        },
+    },
+    phone: {
+        target: 'data.phone',
+        handler: (value) => {
+            return value !== '' && phoneRule.test(value);
+        },
+        message: (value) => {
+            if (value === '') return 'Заполните поле';
+            if (!phoneRule.test(value)) return 'Заполните поле полностью';
+            return 'Неверное значение';
+        },
+    },
+    message: {
+        target: 'data.message',
         handler: (value) => {
             return value !== '';
         },
@@ -40,12 +62,18 @@ export default (el, name) =>
             'data.name'() {
                 delete this.invalidFields['name'];
             },
+            'data.phone'() {
+                delete this.invalidFields['phone'];
+            },
+            'data.message'() {
+                delete this.invalidFields['message'];
+            },
         },
         methods: {
             async submit() {
                 if (this.isLoading) return;
 
-                if (!this.isValidForm(['name'])) return
+                if (!this.isValidForm(['name', 'phone', 'message'])) return
                 else this.clearInvalidFields();
 
                 const payload = createPayload(this.data);
