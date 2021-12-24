@@ -2,6 +2,22 @@ import './uikit';
 import './swiper';
 import initRequestForm from '../components/request-form';
 
+function initModals() {
+    const modals = document.querySelectorAll('[data-uk-modal]');
+    modals.forEach(modal => {
+        const forms = modal.querySelectorAll('[data-form]');
+        modal.addEventListener('hide', () => {
+            forms.forEach(form => {
+                form.dispatchEvent(new Event('hide'));
+            });
+        });
+    });
+}
+
+window.onload = () => {
+    initModals();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     initRequestForm('[data-vue-request-form]', 'request-form');
 });

@@ -1,7 +1,13 @@
 {% import _self as macros %}
 
 {% macro content() %}
-    <form class="Form" @submit.prevent="submit" data-vue-request-form>
+    <form
+        class="Form"
+        @submit.prevent="submit"
+        @hide="onHide"
+        data-vue-request-form
+        data-form
+    >
         <fieldset class="Form__fieldset">
             <div class="Form__field">
                 <input

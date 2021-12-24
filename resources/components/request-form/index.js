@@ -137,6 +137,10 @@ export default (el, name) =>
                     event.currentTarget.value = event.currentTarget.value.replace(/^[8]/g, '+7');
                 }
                 this.data.phone = event.currentTarget.value;
-            },    
+            },
+
+            onHide() {
+                this.clearInvalidFields();
+            },
         },
     });
