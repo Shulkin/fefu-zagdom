@@ -38,6 +38,8 @@
     }    
 
     &__field {
+        position: relative;
+
         &:not(:last-child) {
             margin-bottom: 24px;
         }
@@ -45,10 +47,25 @@
 
     &__input {
         @extend .uk-input;
+
+        &--invalid {
+            border-color: $color-danger;
+        }
     }
 
     &__textarea {
         @extend .uk-textarea;
+    }
+
+    &__hint {
+        position: absolute;
+        left: 14px;
+        top: calc(100% - 9px);
+        padding-x: 4px;
+        border-radius: 4px;
+        background-color: white;
+        font-size: toRem(12px);
+        color: $color-danger;
     }
 
     &__footer {

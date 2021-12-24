@@ -114,6 +114,8 @@ $base-heading-font-family: 'Montserrat', sans-serif;
 @mixin hook-form {
     padding: 16px;
     border-radius: 5px;
+    border: 1px solid $form-background;
+    transition: border-color 0.25s ease-in-out;
 }
 
 @mixin hook-form-multi-line {

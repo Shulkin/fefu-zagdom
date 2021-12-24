@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import get from 'lodash-es/get';
 import { mask } from 'vue-the-mask';
 
 const formDataSchema = () => ({
@@ -11,7 +12,19 @@ const createPayload = (data) => ({
     name: data.name,
     phone: data.phone,
     message: data.message,
-})
+});
+
+const validation = {
+    name: {
+        target: 'data.name',
+        handler: (value) => {
+            return value !== '';
+        },
+        message: () => {
+            return 'Заполните поле';
+        },
+    },
+};
 
 export default (el, name) =>
     new Vue({
@@ -20,11 +33,20 @@ export default (el, name) =>
         directives: { mask },
         data: () => ({
             data: formDataSchema(),
+            invalidFields: {},
             isLoading: false,
         }),
+        watch: {
+            'data.name'() {
+                delete this.invalidFields['name'];
+            },
+        },
         methods: {
             async submit() {
                 if (this.isLoading) return;
+
+                if (!this.isValidForm(['name'])) return
+                else this.clearInvalidFields();
 
                 const payload = createPayload(this.data);
 
@@ -43,6 +65,31 @@ export default (el, name) =>
                 } finally {
                     this.isLoading = false;
                 }
+            },
+
+            isValidForm(fields) {
+                let result = true;
+                for (const key of fields) {
+                    const { target, handler, message } = validation[key];
+                    const value = get(this, target);
+                    if (!handler(value)) {
+                        this.$set(this.invalidFields, key, message(value));
+                        result = false;
+                    }
+                }
+                return result;
+            },
+
+            isInvalidField(key) {
+                return key in this.invalidFields;
+            },
+
+            getErrorMessage(key) {
+                return this.invalidFields[key];
+            },
+
+            clearInvalidFields() {
+                this.invalidFields = {};
             },
 
             onInputPhone(event) {

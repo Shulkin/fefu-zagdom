@@ -10,8 +10,14 @@
                     aria-label="Имя"
                     placeholder="Имя"
                     class="Form__input"
+                    :class="{ 'Form__input--invalid': isInvalidField('name') }"
                     v-model="data.name"
                 >
+                <span
+                    v-if="isInvalidField('name')"
+                    class="Form__hint"
+                    v-text="getErrorMessage('name')"
+                ></span>
             </div>
 
             <div class="Form__field">
